@@ -1,0 +1,224 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+:root {
+    --gold: #c9a84c;
+    --gold-dim: rgba(201, 168, 76, 0.18);
+    --gold-border: rgba(201, 168, 76, 0.28);
+    --gold-text: rgba(201, 168, 76, 0.85);
+    --tr: 0.62s cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+[data-theme="dark"] {
+    --bg: #070705;
+    --bg2: #0d0c09;
+    --surf: rgba(255, 255, 255, 0.042);
+    --surf2: rgba(255, 255, 255, 0.08);
+    --border: rgba(255, 255, 255, 0.08);
+    --text: #eae6db;
+    --muted: rgba(234, 230, 219, 0.42);
+    --dim: rgba(234, 230, 219, 0.22);
+    --nav: rgba(7, 7, 5, 0.58);
+    --comp-op: 0.052;
+    --vig: rgba(0, 0, 0, 0.74);
+}
+
+[data-theme="light"] {
+    --bg: #f3efe4;
+    --bg2: #ebe6d8;
+    --surf: rgba(0, 0, 0, 0.038);
+    --surf2: rgba(0, 0, 0, 0.07);
+    --border: rgba(0, 0, 0, 0.10);
+    --text: #18160e;
+    --muted: rgba(24, 22, 14, 0.5);
+    --dim: rgba(24, 22, 14, 0.28);
+    --nav: rgba(243, 239, 228, 0.62);
+    --comp-op: 0.075;
+    --vig: rgba(243, 239, 228, 0.52);
+}
+ 
+/* ── BASE ── */
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    cursor: none;
+    transition: background 0.65s ease, color 0.65s ease;
+}
+
+/* ── GRAINY OVERLAY ── */
+.grain {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.26;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
+}
+
+/* ── VIGNETTE ── */
+.vignette {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 997;
+    background: radial-gradient(ellipse at center, transparent 36%, var(--vig) 100%);
+    transition: background 0.65s ease;
+}
+
+/* ── COMPASS BACKGROUND ── */
+.compass-wrap {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(118vw, 118vh);
+    height: min(118vw, 118vh);
+    z-index: 0;
+    pointer-events: none;
+    opacity: var(--comp-op);
+    color: var(--gold);
+    transition: opacity 0.65s ease, color 0.65s ease;
+}
+
+.compass-svg {
+    width: 100%;
+    height: 100%;
+    animation: compassSpin 110s linear infinite;
+}
+
+/* ── GLASSY UI ── */
+.glass {
+    background: var(--surf);
+    backdrop-filter: blur(36px) saturate(1.8);
+    -webkit-backdrop-filter: blur(36px) saturate(1.8);
+    border: 0.5px solid var(--border);
+    border-radius: 18px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.5s ease, border-color 0.5s ease;
+}
+
+.glass::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.18), transparent);
+}
+
+/* ── SECTION LABELS ── */
+.sec-label {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.sec-label::before {
+    content: '';
+    display: block;
+    width: 22px;
+    height: 0.5px;
+    background: var(--gold);
+}
+
+.sec-num {
+    font-size: 10px;
+    color: var(--dim);
+    letter-spacing: 0.12em;
+}
+
+/* ── AVAILABLE OR NU UH (reused in about) ── */
+.avail-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 15px;
+    background: var(--gold-dim);
+    border: 0.5px solid var(--gold-border);
+    border-radius: 100px;
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.avail-dot {
+    width: 5px;
+    height: 5px;
+    background: var(--gold);
+    border-radius: 50%;
+    animation: pulse 2.4s ease-in-out infinite;
+}
+
+/* ── KEYFRAMES ── */
+@keyframes compassSpin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.45; transform: scale(0.82); }
+}
+
+@keyframes horizonFill {
+    from { width: 0; }
+    to   { width: 100%; }
+}
+
+@keyframes shipSail {
+    from { left: 0; opacity: 0; }
+    to   { left: calc(100% - 28px); opacity: 1; }
+}
+
+@keyframes waveScroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+/* ── RESPONSIVE BREAKPOINTS ── */
+@media (max-width: 900px) {
+    nav,
+    .footer-bar {
+        padding: 16px 22px;
+    }
+
+    .page {
+        padding: 82px 22px 88px;
+    }
+
+    .progress-track {
+        bottom: 56px;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+}
