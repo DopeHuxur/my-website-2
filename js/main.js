@@ -1,3 +1,6 @@
+/* main.js - CURSOR, THEME TOGGLE, INTERACTIVE HOVER STATES
+   The Voyage // Portfolio of DopeHuxur */
+
 (function initMain() {
 
     /* SEXY ROUND CIRCLE FOLLOWING DOT CURSOR */
