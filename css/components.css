@@ -1,0 +1,395 @@
+/* LOADER */
+#loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9000;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+#loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loader-emblem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+.loader-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 0.38em;
+    text-transform: uppercase;
+    color: var(--dim);
+}
+
+.loader-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: 0.06em;
+    color: var(--text);
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.25s forwards;
+}
+
+.loader-sub {
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.5s forwards;
+}
+
+/* HORIZON ANIMATION */
+.loader-sea {
+    width: 280px;
+    height: 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.loader-horizon {
+    position: absolute;
+    bottom: 18px;
+    left: 0;
+    right: 0;
+    height: 0.5px;
+    background: var(--border);
+}
+
+.loader-horizon-fill {
+    position: absolute;
+    bottom: 18px;
+    left: 0;
+    height: 0.5px;
+    background: var(--gold);
+    width: 0;
+    animation: horizonFill 2.6s cubic-bezier(0.4, 0, 0.2, 1) 0.7s forwards;
+}
+
+.loader-ship-svg {
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    animation: shipSail 2.6s cubic-bezier(0.4, 0, 0.2, 1) 0.7s forwards;
+}
+
+.loader-waves {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 18px;
+    overflow: hidden;
+}
+
+.loader-waves svg {
+    width: 200%;
+    height: 100%;
+    animation: waveScroll 1.8s linear infinite;
+}
+
+.loader-status {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--dim);
+    transition: opacity 0.3s ease;
+}
+
+/* FANCY SEXY ROUND CURSOR */
+.cursor {
+    position: fixed;
+    width: 7px;
+    height: 7px;
+    background: var(--gold);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 8999;
+    transform: translate(-50%, -50%);
+}
+
+[data-theme="dark"] .cursor {
+    mix-blend-mode: screen;
+}
+
+[data-theme="light"] .cursor {
+    mix-blend-mode: multiply;
+}
+
+.cursor-ring {
+    position: fixed;
+    width: 28px;
+    height: 28px;
+    border: 1px solid rgba(201, 168, 76, 0.42);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 8998;
+    transform: translate(-50%, -50%);
+    transition: width 0.28s ease, height 0.28s ease, border-color 0.28s ease;
+}
+
+/* NAVBARARARAR */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 500;
+    padding: 22px 52px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(22px) saturate(1.5);
+    -webkit-backdrop-filter: blur(22px) saturate(1.5);
+    background: var(--nav);
+    border-bottom: 0.5px solid var(--border);
+    transition: background 0.65s ease, border-color 0.65s ease;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    color: var(--text);
+    text-decoration: none;
+    cursor: none;
+}
+
+.nav-logo-icon {
+    width: 22px;
+    height: 22px;
+    opacity: 0.85;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+}
+
+.nav-links button {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: none;
+    border: none;
+    cursor: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    padding: 0;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-links button::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 0.5px;
+    background: var(--gold);
+    transition: width 0.4s ease;
+}
+
+.nav-links button:hover,
+.nav-links button.active {
+    color: var(--text);
+}
+
+.nav-links button.active::after,
+.nav-links button:hover::after {
+    width: 100%;
+}
+
+/* WHITE MODE ENJOYER */
+.theme-toggle {
+    width: 40px;
+    height: 21px;
+    background: var(--surf2);
+    border: 0.5px solid var(--border);
+    border-radius: 100px;
+    cursor: none;
+    position: relative;
+    transition: background 0.4s ease;
+    flex-shrink: 0;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.theme-toggle::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 13px;
+    height: 13px;
+    background: var(--gold);
+    border-radius: 50%;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+[data-theme="light"] .theme-toggle::after {
+    transform: translateX(19px);
+}
+
+/* SHIP PROGRESS BAR */
+.progress-track {
+    position: fixed;
+    left: 50%;
+    bottom: 62px;
+    transform: translateX(-50%);
+    z-index: 400;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    pointer-events: none;
+}
+
+.progress-sea {
+    width: 180px;
+    height: 36px;
+    position: relative;
+    overflow: visible;
+}
+
+.progress-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 0.5px;
+    background: var(--border);
+    transform: translateY(-50%);
+}
+
+.progress-fill {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 0.5px;
+    background: var(--gold);
+    transform: translateY(-50%);
+    transition: width 0.7s cubic-bezier(0.77, 0, 0.18, 1);
+    width: 0%;
+}
+
+.progress-stops {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateY(-50%);
+    padding: 0 2px;
+}
+
+.progress-stop {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--border);
+    border: 0.5px solid var(--border);
+    transition: background 0.4s ease, transform 0.4s ease;
+    flex-shrink: 0;
+}
+
+.progress-stop.passed {
+    background: var(--gold);
+    border-color: var(--gold);
+}
+
+/* SHIP MARKER */
+.ship-marker {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -62%);
+    transition: left 0.7s cubic-bezier(0.77, 0, 0.18, 1);
+    left: 0%;
+}
+
+.ship-marker svg {
+    width: 26px;
+    height: 22px;
+    filter: drop-shadow(0 1px 4px rgba(201, 168, 76, 0.35));
+}
+
+/* PROGRESS BAR LABELS */
+.progress-labels {
+    width: 180px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+}
+
+.progress-label {
+    font-size: 8px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--dim);
+    transition: color 0.4s ease;
+    text-align: center;
+    width: 32px;
+}
+
+.progress-label.active {
+    color: var(--gold);
+}
+
+/* FOOTER */
+.footer-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 400;
+    padding: 14px 52px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: var(--nav);
+    border-top: 0.5px solid var(--border);
+    transition: background 0.65s ease;
+}
+
+.footer-left {
+    font-size: 9px;
+    color: var(--dim);
+    letter-spacing: 0.12em;
+}
+
+.footer-right {
+    font-size: 9px;
+    color: var(--dim);
+    letter-spacing: 0.1em;
+}
