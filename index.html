@@ -1,0 +1,1030 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>DopeHuxur's Portfolio</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap"
+            rel="stylesheet"
+        />
+
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/components.css" />
+        <link rel="stylesheet" href="css/pages.css" />
+    </head>
+    <body>
+        <!-- ═══ LOADER ═══ -->
+        <div id="loader">
+            <div class="loader-emblem">
+                <div class="loader-title">The Voyage</div>
+                <div class="loader-name">Anwar K. Sadat</div>
+                <div class="loader-sub">Charting course…</div>
+            </div>
+            <div class="loader-sea">
+                <div class="loader-horizon"></div>
+                <div class="loader-horizon-fill"></div>
+                <!-- tiny ship -->
+                <svg
+                    class="loader-ship-svg"
+                    width="28"
+                    height="22"
+                    viewBox="0 0 28 22"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path d="M14 2V14" stroke="#c9a84c" stroke-width=".8" />
+                    <path
+                        d="M14 3L20 9H14V3Z"
+                        fill="rgba(201,168,76,0.35)"
+                        stroke="#c9a84c"
+                        stroke-width=".6"
+                    />
+                    <path
+                        d="M14 5L9 10H14V5Z"
+                        fill="rgba(201,168,76,0.2)"
+                        stroke="#c9a84c"
+                        stroke-width=".5"
+                    />
+                    <path
+                        d="M4 14H24L22 18H6L4 14Z"
+                        fill="rgba(201,168,76,0.25)"
+                        stroke="#c9a84c"
+                        stroke-width=".7"
+                    />
+                    <path
+                        d="M6 18Q14 21 22 18"
+                        stroke="#c9a84c"
+                        stroke-width=".6"
+                        fill="none"
+                    />
+                </svg>
+                <div class="loader-waves">
+                    <svg
+                        viewBox="0 0 400 18"
+                        preserveAspectRatio="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M0 9 Q25 2 50 9 Q75 16 100 9 Q125 2 150 9 Q175 16 200 9 Q225 2 250 9 Q275 16 300 9 Q325 2 350 9 Q375 16 400 9"
+                            stroke="rgba(201,168,76,0.3)"
+                            stroke-width="1"
+                            fill="none"
+                        />
+                        <path
+                            d="M0 13 Q25 7 50 13 Q75 19 100 13 Q125 7 150 13 Q175 19 200 13 Q225 7 250 13 Q275 19 300 13 Q325 7 350 13 Q375 19 400 13"
+                            stroke="rgba(201,168,76,0.15)"
+                            stroke-width=".7"
+                            fill="none"
+                        />
+                    </svg>
+                </div>
+            </div>
+            <div class="loader-status" id="loaderStatus">Setting sail…</div>
+        </div>
+
+        <!-- CURSOR -->
+        <div class="cursor" id="cursor"></div>
+        <div class="cursor-ring" id="cursorRing"></div>
+        <div class="grain"></div>
+        <div class="vignette"></div>
+
+        <!-- COMPASS -->
+        <div class="compass-wrap">
+            <svg
+                class="compass-svg"
+                viewBox="0 0 800 800"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+            >
+                <circle
+                    cx="400"
+                    cy="400"
+                    r="386"
+                    stroke="currentColor"
+                    stroke-width=".9"
+                    opacity=".9"
+                />
+                <circle
+                    cx="400"
+                    cy="400"
+                    r="370"
+                    stroke="currentColor"
+                    stroke-width=".4"
+                    opacity=".5"
+                />
+                <circle
+                    cx="400"
+                    cy="400"
+                    r="342"
+                    stroke="currentColor"
+                    stroke-width=".3"
+                    opacity=".3"
+                />
+                <g stroke="currentColor" stroke-width="1.2">
+                    <line x1="400" y1="16" x2="400" y2="44" />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="44"
+                        transform="rotate(90 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="44"
+                        transform="rotate(180 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="44"
+                        transform="rotate(270 400 400)"
+                    />
+                </g>
+                <g stroke="currentColor" stroke-width=".7">
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="36"
+                        transform="rotate(45 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="36"
+                        transform="rotate(135 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="36"
+                        transform="rotate(225 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="36"
+                        transform="rotate(315 400 400)"
+                    />
+                </g>
+                <g stroke="currentColor" stroke-width=".4">
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="28"
+                        transform="rotate(10 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="28"
+                        transform="rotate(20 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="28"
+                        transform="rotate(30 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="28"
+                        transform="rotate(40 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="28"
+                        transform="rotate(50 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="28"
+                        transform="rotate(60 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="28"
+                        transform="rotate(70 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="28"
+                        transform="rotate(80 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="28"
+                        transform="rotate(100 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="28"
+                        transform="rotate(110 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="28"
+                        transform="rotate(120 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="28"
+                        transform="rotate(130 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="28"
+                        transform="rotate(140 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="28"
+                        transform="rotate(150 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="28"
+                        transform="rotate(160 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="28"
+                        transform="rotate(170 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="28"
+                        transform="rotate(190 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="28"
+                        transform="rotate(200 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="28"
+                        transform="rotate(210 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="28"
+                        transform="rotate(220 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="28"
+                        transform="rotate(230 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="28"
+                        transform="rotate(240 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="28"
+                        transform="rotate(250 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="28"
+                        transform="rotate(260 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="28"
+                        transform="rotate(280 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="28"
+                        transform="rotate(290 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="28"
+                        transform="rotate(300 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="28"
+                        transform="rotate(310 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="28"
+                        transform="rotate(320 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="28"
+                        transform="rotate(330 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="28"
+                        transform="rotate(340 400 400)"
+                    />
+                    <line
+                        x1="400"
+                        y1="16"
+                        x2="400"
+                        y2="28"
+                        transform="rotate(350 400 400)"
+                    />
+                </g>
+                <text
+                    x="400"
+                    y="70"
+                    text-anchor="middle"
+                    font-family="Cormorant Garamond,serif"
+                    font-size="30"
+                    font-weight="400"
+                    fill="currentColor"
+                    letter-spacing="2"
+                >
+                    N
+                </text>
+                <text
+                    x="400"
+                    y="748"
+                    text-anchor="middle"
+                    font-family="Cormorant Garamond,serif"
+                    font-size="22"
+                    font-weight="300"
+                    fill="currentColor"
+                    opacity=".65"
+                >
+                    S
+                </text>
+                <text
+                    x="748"
+                    y="408"
+                    text-anchor="middle"
+                    font-family="Cormorant Garamond,serif"
+                    font-size="22"
+                    font-weight="300"
+                    fill="currentColor"
+                    opacity=".65"
+                >
+                    E
+                </text>
+                <text
+                    x="54"
+                    y="408"
+                    text-anchor="middle"
+                    font-family="Cormorant Garamond,serif"
+                    font-size="22"
+                    font-weight="300"
+                    fill="currentColor"
+                    opacity=".65"
+                >
+                    W
+                </text>
+                <text
+                    x="660"
+                    y="152"
+                    text-anchor="middle"
+                    font-family="Cormorant Garamond,serif"
+                    font-size="15"
+                    fill="currentColor"
+                    opacity=".35"
+                    transform="rotate(45 660 152)"
+                >
+                    NE
+                </text>
+                <text
+                    x="140"
+                    y="152"
+                    text-anchor="middle"
+                    font-family="Cormorant Garamond,serif"
+                    font-size="15"
+                    fill="currentColor"
+                    opacity=".35"
+                    transform="rotate(-45 140 152)"
+                >
+                    NW
+                </text>
+                <text
+                    x="660"
+                    y="660"
+                    text-anchor="middle"
+                    font-family="Cormorant Garamond,serif"
+                    font-size="15"
+                    fill="currentColor"
+                    opacity=".35"
+                    transform="rotate(-45 660 660)"
+                >
+                    SE
+                </text>
+                <text
+                    x="140"
+                    y="660"
+                    text-anchor="middle"
+                    font-family="Cormorant Garamond,serif"
+                    font-size="15"
+                    fill="currentColor"
+                    opacity=".35"
+                    transform="rotate(45 140 660)"
+                >
+                    SW
+                </text>
+                <polygon
+                    points="400,82 413,400 400,718 387,400"
+                    fill="currentColor"
+                    opacity=".82"
+                />
+                <polygon
+                    points="82,400 400,413 718,400 400,387"
+                    fill="currentColor"
+                    opacity=".52"
+                />
+                <polygon
+                    points="400,82 413,400 400,718 387,400"
+                    fill="currentColor"
+                    opacity=".42"
+                    transform="rotate(45 400 400)"
+                />
+                <polygon
+                    points="400,82 413,400 400,718 387,400"
+                    fill="currentColor"
+                    opacity=".24"
+                    transform="rotate(22.5 400 400)"
+                />
+                <polygon
+                    points="400,82 413,400 400,718 387,400"
+                    fill="currentColor"
+                    opacity=".24"
+                    transform="rotate(67.5 400 400)"
+                />
+                <polygon
+                    points="400,82 413,400 400,718 387,400"
+                    fill="currentColor"
+                    opacity=".16"
+                    transform="rotate(112.5 400 400)"
+                />
+                <polygon
+                    points="400,82 413,400 400,718 387,400"
+                    fill="currentColor"
+                    opacity=".16"
+                    transform="rotate(157.5 400 400)"
+                />
+                <circle
+                    cx="400"
+                    cy="400"
+                    r="222"
+                    stroke="currentColor"
+                    stroke-width=".4"
+                    opacity=".18"
+                    stroke-dasharray="4 7"
+                />
+                <circle
+                    cx="400"
+                    cy="400"
+                    r="156"
+                    stroke="currentColor"
+                    stroke-width=".3"
+                    opacity=".14"
+                />
+                <circle
+                    cx="400"
+                    cy="400"
+                    r="20"
+                    stroke="currentColor"
+                    stroke-width="1"
+                    opacity=".62"
+                />
+                <circle
+                    cx="400"
+                    cy="400"
+                    r="9"
+                    fill="currentColor"
+                    opacity=".58"
+                />
+                <circle
+                    cx="400"
+                    cy="400"
+                    r="3"
+                    fill="currentColor"
+                    opacity="1"
+                />
+            </svg>
+        </div>
+
+        <!-- NAV -->
+        <nav>
+            <a class="nav-logo" href="#">
+                <svg
+                    class="nav-logo-icon"
+                    viewBox="0 0 22 22"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path d="M11 2V13" stroke="#c9a84c" stroke-width=".9" />
+                    <path
+                        d="M11 2L17 8H11V2Z"
+                        fill="rgba(201,168,76,0.3)"
+                        stroke="#c9a84c"
+                        stroke-width=".7"
+                    />
+                    <path
+                        d="M11 4L6 9H11V4Z"
+                        fill="rgba(201,168,76,0.18)"
+                        stroke="#c9a84c"
+                        stroke-width=".6"
+                    />
+                    <path
+                        d="M3 13H19L17.5 17H4.5L3 13Z"
+                        fill="rgba(201,168,76,0.22)"
+                        stroke="#c9a84c"
+                        stroke-width=".7"
+                    />
+                    <path
+                        d="M4.5 17Q11 20 17.5 17"
+                        stroke="#c9a84c"
+                        stroke-width=".6"
+                        fill="none"
+                    />
+                </svg>
+                The Voyage
+            </a>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><button class="active" data-page="0">Home</button></li>
+                    <li><button data-page="1">Log</button></li>
+                    <li><button data-page="2">Voyages</button></li>
+                    <li><button data-page="3">Projects</button></li>
+                    <li><button data-page="4">Contact</button></li>
+                </ul>
+                <button
+                    class="theme-toggle"
+                    id="themeToggle"
+                    aria-label="Toggle theme"
+                ></button>
+            </div>
+        </nav>
+
+        <!-- PIRATE SHIP PROGRESS TRACKER -->
+        <div class="progress-track" id="progressTrack">
+            <div class="progress-sea">
+                <div class="progress-line"></div>
+                <div class="progress-fill" id="progressFill"></div>
+                <div class="progress-stops" id="progressStops">
+                    <div class="progress-stop passed" data-stop="0"></div>
+                    <div class="progress-stop" data-stop="1"></div>
+                    <div class="progress-stop" data-stop="2"></div>
+                    <div class="progress-stop" data-stop="3"></div>
+                    <div class="progress-stop" data-stop="4"></div>
+                </div>
+                <!-- Ship marker -->
+                <div class="ship-marker" id="shipMarker">
+                    <svg
+                        viewBox="0 0 26 22"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path d="M13 1V12" stroke="#c9a84c" stroke-width=".9" />
+                        <path
+                            d="M13 1L19 7H13V1Z"
+                            fill="rgba(201,168,76,0.4)"
+                            stroke="#c9a84c"
+                            stroke-width=".7"
+                        />
+                        <path
+                            d="M13 3.5L8 8H13V3.5Z"
+                            fill="rgba(201,168,76,0.24)"
+                            stroke="#c9a84c"
+                            stroke-width=".6"
+                        />
+                        <path
+                            d="M3 12H23L21 17H5L3 12Z"
+                            fill="rgba(201,168,76,0.28)"
+                            stroke="#c9a84c"
+                            stroke-width=".75"
+                        />
+                        <path
+                            d="M5 17Q13 20.5 21 17"
+                            stroke="#c9a84c"
+                            stroke-width=".65"
+                            fill="none"
+                        />
+                        <!-- tiny wake lines -->
+                        <path
+                            d="M0 16 Q2 14.5 4 16"
+                            stroke="rgba(201,168,76,0.35)"
+                            stroke-width=".5"
+                            fill="none"
+                        />
+                        <path
+                            d="M0 18 Q2 16.5 4 18"
+                            stroke="rgba(201,168,76,0.2)"
+                            stroke-width=".4"
+                            fill="none"
+                        />
+                    </svg>
+                </div>
+            </div>
+            <div class="progress-labels" id="progressLabels">
+                <div class="progress-label active" data-label="0">Port</div>
+                <div class="progress-label" data-label="1">Log</div>
+                <div class="progress-label" data-label="2">Voyage</div>
+                <div class="progress-label" data-label="3">Chart</div>
+                <div class="progress-label" data-label="4">Signal</div>
+            </div>
+        </div>
+
+        <!-- PAGES -->
+        <div class="pages">
+            <!-- PAGE 0: HOME -->
+            <div class="page active" id="page-0">
+                <div class="home-label">Software Developer</div>
+                <div class="home-name-line1">Anwar K.</div>
+                <div class="home-name-line2">Sadat</div>
+                <div class="home-alias">
+                    Known across the vast waters o' the internet as DopeHuxur
+                </div>
+                <p class="home-desc">
+                    Somewhere nobody maps. I believe the web is still an
+                    uncharted territory. A place for quiet voyagers who seek the
+                    vastness worth crossing.
+                </p>
+                <button class="home-scroll-cta" data-page="1">
+                    <span class="cta-line"></span>
+                    Scroll to chart
+                </button>
+            </div>
+
+            <!-- PAGE 1: LOG (ABOUT) -->
+            <div class="page" id="page-1">
+                <div class="sec-label">
+                    <span class="sec-num">01</span> About
+                </div>
+                <div class="about-grid">
+                    <div>
+                        <h2 class="about-heading">
+                            The Captain's <em>Log</em>
+                        </h2>
+                        <div class="about-body">
+                            <p>
+                                I'm a developer who believes in the poetry of
+                                code. Like a navigator reading the stars, I
+                                chart courses through complex problems, finding
+                                elegant solutions in the digital expanse.
+                            </p>
+                            <p>
+                                With over a decade of voyaging through the
+                                ever-changing tides of web development, I've
+                                learned that the best experiences come from
+                                understanding both the depths and the
+                                surface—the architecture beneath and the polish
+                                above.
+                            </p>
+                            <p class="about-bold">
+                                Currently charting new territories in creative
+                                development, crafting interfaces that feel as
+                                natural as the wind in the sails.
+                            </p>
+                            <div class="avail-pill">
+                                <div class="avail-dot"></div>
+                                Available for new expeditions
+                            </div>
+                            <div class="coords" style="margin-top: 22px">
+                                Current coordinates:
+                                <span>23.8041° N, 90.4152° E</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-sidebar">
+                        <div>
+                            <div class="skill-group-label">Frontend</div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">React</span
+                                ><span class="skill-tag">Next.js</span
+                                ><span class="skill-tag">TypeScript</span
+                                ><span class="skill-tag">Tailwind CSS</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="skill-group-label">Backend</div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Node.js</span
+                                ><span class="skill-tag">Python</span
+                                ><span class="skill-tag">PostgreSQL</span
+                                ><span class="skill-tag">GraphQL</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="skill-group-label">Design</div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Figma</span
+                                ><span class="skill-tag">Motion Design</span
+                                ><span class="skill-tag">3D</span
+                                ><span class="skill-tag">Typography</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE 2: VOYAGES (EXPERIENCE) -->
+            <div class="page" id="page-2">
+                <div class="sec-label">
+                    <span class="sec-num">02</span> Experience
+                </div>
+                <h2 class="exp-heading">Ports of <em>Call</em></h2>
+                <div class="exp-list">
+                    <div class="exp-item">
+                        <div class="exp-year">2022 — Present</div>
+                        <div class="exp-right">
+                            <div class="exp-role">
+                                Senior Creative Developer
+                            </div>
+                            <div class="exp-company">Digital Seas Studio</div>
+                            <p class="exp-desc">
+                                Leading the development of immersive web
+                                experiences, crafting custom animations and
+                                interactions that push the boundaries of what's
+                                possible on the web.
+                            </p>
+                            <div class="exp-tags">
+                                <span class="exp-tag">React</span
+                                ><span class="exp-tag">Three.js</span
+                                ><span class="exp-tag">GSAP</span
+                                ><span class="exp-tag">WebGL</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="exp-item">
+                        <div class="exp-year">2019 — 2022</div>
+                        <div class="exp-right">
+                            <div class="exp-role">Frontend Engineer</div>
+                            <div class="exp-company">Horizon Labs</div>
+                            <p class="exp-desc">
+                                Built scalable frontend architectures for
+                                high-traffic applications, focusing on
+                                performance optimization and accessibility.
+                            </p>
+                            <div class="exp-tags">
+                                <span class="exp-tag">Next.js</span
+                                ><span class="exp-tag">TypeScript</span
+                                ><span class="exp-tag">Node.js</span
+                                ><span class="exp-tag">GraphQL</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="exp-item">
+                        <div class="exp-year">2016 — 2019</div>
+                        <div class="exp-right">
+                            <div class="exp-role">Full Stack Developer</div>
+                            <div class="exp-company">Anchor Digital</div>
+                            <p class="exp-desc">
+                                Developed end-to-end solutions for diverse
+                                clients, from e-commerce platforms to
+                                interactive dashboards.
+                            </p>
+                            <div class="exp-tags">
+                                <span class="exp-tag">React</span
+                                ><span class="exp-tag">Python</span
+                                ><span class="exp-tag">PostgreSQL</span
+                                ><span class="exp-tag">AWS</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="exp-item">
+                        <div class="exp-year">2014 — 2016</div>
+                        <div class="exp-right">
+                            <div class="exp-role">Junior Developer</div>
+                            <div class="exp-company">Starboard Agency</div>
+                            <p class="exp-desc">
+                                Started the voyage into web development,
+                                learning the ropes of modern frontend practices
+                                and collaborative workflows.
+                            </p>
+                            <div class="exp-tags">
+                                <span class="exp-tag">JavaScript</span
+                                ><span class="exp-tag">HTML/CSS</span
+                                ><span class="exp-tag">jQuery</span
+                                ><span class="exp-tag">PHP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE 3: CHARTED TERRITORIES (PROJECTS) -->
+            <div class="page" id="page-3">
+                <div class="sec-label">
+                    <span class="sec-num">03</span> Projects
+                </div>
+                <h2 class="proj-heading">Charted <em>Territories</em></h2>
+                <div class="proj-grid">
+                    <div class="proj-card">
+                        <div class="proj-num">01</div>
+                        <div class="proj-name">Cartograph</div>
+                        <p class="proj-desc">
+                            An interactive mapping tool that visualizes data
+                            journeys with smooth animations and intuitive
+                            controls.
+                        </p>
+                        <div class="proj-tags">
+                            <span class="proj-tag">React</span
+                            ><span class="proj-tag">D3.js</span
+                            ><span class="proj-tag">MapboxGL</span>
+                        </div>
+                        <div class="proj-arrow">↗</div>
+                    </div>
+                    <div class="proj-card">
+                        <div class="proj-num">02</div>
+                        <div class="proj-name">Tidepool</div>
+                        <p class="proj-desc">
+                            A meditation app featuring generative audio
+                            landscapes that respond to time and weather
+                            conditions.
+                        </p>
+                        <div class="proj-tags">
+                            <span class="proj-tag">Next.js</span
+                            ><span class="proj-tag">Web Audio API</span
+                            ><span class="proj-tag">Three.js</span>
+                        </div>
+                        <div class="proj-arrow">↗</div>
+                    </div>
+                    <div class="proj-card">
+                        <div class="proj-num">03</div>
+                        <div class="proj-name">Mariner</div>
+                        <p class="proj-desc">
+                            Command-line tool for managing development
+                            workflows, inspired by nautical navigation systems.
+                        </p>
+                        <div class="proj-tags">
+                            <span class="proj-tag">Node.js</span
+                            ><span class="proj-tag">TypeScript</span
+                            ><span class="proj-tag">CLI</span>
+                        </div>
+                        <div class="proj-arrow">↗</div>
+                    </div>
+                    <div class="proj-card">
+                        <div class="proj-num">04</div>
+                        <div class="proj-name">Sextant</div>
+                        <p class="proj-desc">
+                            Design system and component library built for
+                            precision and consistency across large-scale
+                            applications.
+                        </p>
+                        <div class="proj-tags">
+                            <span class="proj-tag">React</span
+                            ><span class="proj-tag">Storybook</span
+                            ><span class="proj-tag">Tailwind CSS</span>
+                        </div>
+                        <div class="proj-arrow">↗</div>
+                    </div>
+                </div>
+                <button class="view-all" style="margin-top: 22px">
+                    <span
+                        style="
+                            width: 28px;
+                            height: 0.5px;
+                            background: var(--gold);
+                            display: block;
+                            transition: width 0.4s;
+                        "
+                    ></span>
+                    View all expeditions
+                </button>
+            </div>
+
+            <!-- PAGE 4: CONTACT -->
+            <div class="page" id="page-4">
+                <div class="contact-inner">
+                    <div class="contact-sec-label">04 — Contact</div>
+                    <h2 class="contact-heading">Set <em>Sail</em> Together</h2>
+                    <p class="contact-sub">
+                        Whether you have a project in mind or just want to
+                        exchange ideas over a virtual coffee, I'm always open to
+                        new conversations and collaborations.
+                    </p>
+                    <a href="mailto:anwar@example.com" class="contact-btn"
+                        >Send a Message →</a
+                    >
+                    <div class="contact-divider">Or find me elsewhere</div>
+                    <div class="social-links">
+                        <!-- GitHub -->
+                        <a href="#" class="social-link" title="GitHub">
+                            <svg viewBox="0 0 16 16">
+                                <path
+                                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+                                />
+                            </svg>
+                        </a>
+                        <!-- LinkedIn -->
+                        <a href="#" class="social-link" title="LinkedIn">
+                            <svg viewBox="0 0 16 16">
+                                <path
+                                    d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"
+                                />
+                            </svg>
+                        </a>
+                        <!-- Twitter / X -->
+                        <a href="#" class="social-link" title="Twitter">
+                            <svg viewBox="0 0 16 16">
+                                <path
+                                    d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"
+                                />
+                            </svg>
+                        </a>
+                        <!-- Dribbble -->
+                        <a href="#" class="social-link" title="Dribbble">
+                            <svg viewBox="0 0 16 16">
+                                <path
+                                    d="M8 0C3.584 0 0 3.584 0 8s3.584 8 8 8c4.408 0 8-3.584 8-8s-3.592-8-8-8zm5.284 3.688a6.802 6.802 0 0 1 1.545 4.251c-.226-.043-2.482-.503-4.755-.217-.052-.112-.096-.234-.148-.355-.139-.33-.295-.668-.451-.99 2.516-1.023 3.662-2.498 3.81-2.69zM8 1.18c1.735 0 3.323.65 4.53 1.718-.122.174-1.155 1.553-3.584 2.464-1.12-2.056-2.36-3.74-2.551-4A6.95 6.95 0 0 1 8 1.18zm-2.907.624c.183.234 1.397 1.919 2.53 3.939-3.19.85-6.006.833-6.319.833a6.865 6.865 0 0 1 3.79-4.772zM1.163 8.01V7.8c.295.008 3.61.053 7.02-.971.199.381.381.772.555 1.162l-.27.078c-3.522 1.137-5.396 4.243-5.553 4.504A6.842 6.842 0 0 1 1.162 8.01zM8 14.837a6.785 6.785 0 0 1-4.19-1.44c.12-.252 1.509-2.924 5.361-4.269.018-.009.026-.009.044-.017a28.246 28.246 0 0 1 1.458 5.127A6.58 6.58 0 0 1 8 14.837zm3.81-1.171c-.07-.417-.435-2.412-1.328-4.868 2.143-.338 4.017.217 4.251.295a6.774 6.774 0 0 1-2.924 4.573z"
+                                />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer-bar">
+            <span class="footer-left"
+                >© 2026 The Voyage. All rights reserved.</span
+            >
+            <span class="footer-right">Built with care on distant shores</span>
+        </div>
+
+        <script src="js/loader.js"></script>
+        <script src="js/navigation.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
