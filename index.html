@@ -1,1013 +1,1027 @@
 <!doctype html>
 <html lang="en" data-theme="dark">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>The Voyage // DopeHuxur's Portfolio</title>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Voyage // DopeHuxur's Portfolio</title>
 
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap"
-            rel="stylesheet"
-        />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
 
-        <link rel="stylesheet" href="css/style.css" />
-        <link rel="stylesheet" href="css/components.css" />
-        <link rel="stylesheet" href="css/pages.css" />
-    </head>
-    <body>
-        <!-- FANCY FAKE LOADING SCREEN -->
-        <div id="loader">
-            <div class="loader-emblem">
-                <div class="loader-title">The Voyage</div>
-                <div class="loader-name">Anwar K. Sadat</div>
-                <div class="loader-sub">Charting course…</div>
-            </div>
-            <div class="loader-sea">
-                <div class="loader-horizon"></div>
-                <div class="loader-horizon-fill"></div>
-                <!-- PIRATE SHIP LOADING ANIMATION -->
-                <svg
-                    class="loader-ship-svg"
-                    width="28"
-                    height="22"
-                    viewBox="0 0 28 22"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <!-- MAST -->
-                    <path d="M14 2V14" stroke="#c9a84c" stroke-width=".8" />
-                    <!-- RIGHT SAIL TRIANGLEE-->
-                    <path
-                        d="M14 3L20 9H14V3Z"
-                        fill="rgba(201,168,76,0.35)"
-                        stroke="#c9a84c"
-                        stroke-width=".6"
-                    />
-                    <!-- LEFT SAIL MIRRORED AND ASYMMETRICAL -->
-                    <path
-                        d="M14 5L9 10H14V5Z"
-                        fill="rgba(201,168,76,0.2)"
-                        stroke="#c9a84c"
-                        stroke-width=".5"
-                    />
-                    <!-- HULL TRAPEZOID -->
-                    <path
-                        d="M4 14H24L22 18H6L4 14Z"
-                        fill="rgba(201,168,76,0.25)"
-                        stroke="#c9a84c"
-                        stroke-width=".7"
-                    />
-                    <!-- SEXY WAAVE ANIMATION -->
-                    <path
-                        d="M6 18Q14 21 22 18"
-                        stroke="#c9a84c"
-                        stroke-width=".6"
-                        fill="none"
-                    />
-                </svg>
-                <div class="loader-waves">
-                    <svg
-                        viewBox="0 0 400 18"
-                        preserveAspectRatio="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <!-- FIRST WAVE -->
-                        <path
-                            d="M0 9 Q25 2 50 9 Q75 16 100 9 Q125 2 150 9 Q175 16 200 9 Q225 2 250 9 Q275 16 300 9 Q325 2 350 9 Q375 16 400 9"
-                            stroke="rgba(201,168,76,0.3)"
-                            stroke-width="1"
-                            fill="none"
-                        />
-                        <!-- SECOND WAVE -->
-                        <path
-                            d="M0 13 Q25 7 50 13 Q75 19 100 13 Q125 7 150 13 Q175 19 200 13 Q225 7 250 13 Q275 19 300 13 Q325 7 350 13 Q375 19 400 13"
-                            stroke="rgba(201,168,76,0.15)"
-                            stroke-width=".7"
-                            fill="none"
-                        />
-                    </svg>
-                </div>
-            </div>
-            <div class="loader-status" id="loaderStatus">Setting sail…</div>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+
+    <!-- FANCY FAKE LOADING SCREEN -->
+    <div id="loader">
+        <div class="loader-emblem">
+            <div class="loader-title">The Voyage</div>
+            <div class="loader-name">Anwar K. Sadat</div>
+            <div class="loader-sub">Charting course…</div>
         </div>
 
-        <!-- SMOOTH RING CURSOR -->
-        <div class="cursor" id="cursor"></div>
-        <div class="cursor-ring" id="cursorRing"></div>
-        <div class="grain"></div>
-        <div class="vignette"></div>
+        <div class="loader-sea">
+            <div class="loader-horizon"></div>
+            <div class="loader-horizon-fill"></div>
 
-        <!-- GOD AWFUL COMPASS -->
-        <div class="compass-wrap">
+            <!-- PIRATE SHIP LOADING ANIMATION -->
             <svg
-                class="compass-svg"
-                viewBox="0 0 800 800"
-                xmlns="http://www.w3.org/2000/svg"
+                class="loader-ship-svg"
+                width="28"
+                height="22"
+                viewBox="0 0 28 22"
                 fill="none"
-            >
-                <circle
-                    cx="400"
-                    cy="400"
-                    r="386"
-                    stroke="currentColor"
-                    stroke-width=".9"
-                    opacity=".9"
-                />
-                <circle
-                    cx="400"
-                    cy="400"
-                    r="370"
-                    stroke="currentColor"
-                    stroke-width=".4"
-                    opacity=".5"
-                />
-                <circle
-                    cx="400"
-                    cy="400"
-                    r="342"
-                    stroke="currentColor"
-                    stroke-width=".3"
-                    opacity=".3"
-                />
-                <g stroke="currentColor" stroke-width="1.2">
-                    <line x1="400" y1="16" x2="400" y2="44" />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="44"
-                        transform="rotate(90 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="44"
-                        transform="rotate(180 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="44"
-                        transform="rotate(270 400 400)"
-                    />
-                </g>
-                <g stroke="currentColor" stroke-width=".7">
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="36"
-                        transform="rotate(45 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="36"
-                        transform="rotate(135 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="36"
-                        transform="rotate(225 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="36"
-                        transform="rotate(315 400 400)"
-                    />
-                </g>
-                <g stroke="currentColor" stroke-width=".4">
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="28"
-                        transform="rotate(10 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="28"
-                        transform="rotate(20 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="28"
-                        transform="rotate(30 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="28"
-                        transform="rotate(40 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="28"
-                        transform="rotate(50 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="28"
-                        transform="rotate(60 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="28"
-                        transform="rotate(70 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="28"
-                        transform="rotate(80 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="28"
-                        transform="rotate(100 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="28"
-                        transform="rotate(110 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="28"
-                        transform="rotate(120 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="28"
-                        transform="rotate(130 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="28"
-                        transform="rotate(140 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="28"
-                        transform="rotate(150 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="28"
-                        transform="rotate(160 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="28"
-                        transform="rotate(170 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="28"
-                        transform="rotate(190 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="28"
-                        transform="rotate(200 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="28"
-                        transform="rotate(210 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="28"
-                        transform="rotate(220 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="28"
-                        transform="rotate(230 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="28"
-                        transform="rotate(240 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="28"
-                        transform="rotate(250 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="28"
-                        transform="rotate(260 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="28"
-                        transform="rotate(280 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="28"
-                        transform="rotate(290 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="28"
-                        transform="rotate(300 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="28"
-                        transform="rotate(310 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="28"
-                        transform="rotate(320 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="28"
-                        transform="rotate(330 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="28"
-                        transform="rotate(340 400 400)"
-                    />
-                    <line
-                        x1="400"
-                        y1="16"
-                        x2="400"
-                        y2="28"
-                        transform="rotate(350 400 400)"
-                    />
-                </g>
-                <text
-                    x="400"
-                    y="70"
-                    text-anchor="middle"
-                    font-family="Cormorant Garamond,serif"
-                    font-size="30"
-                    font-weight="400"
-                    fill="currentColor"
-                    letter-spacing="2"
+                xmlns="http://www.w3.org/2000/svg"
                 >
-                    N
-                </text>
-                <text
-                    x="400"
-                    y="748"
-                    text-anchor="middle"
-                    font-family="Cormorant Garamond,serif"
-                    font-size="22"
-                    font-weight="300"
-                    fill="currentColor"
-                    opacity=".65"
-                >
-                    S
-                </text>
-                <text
-                    x="748"
-                    y="408"
-                    text-anchor="middle"
-                    font-family="Cormorant Garamond,serif"
-                    font-size="22"
-                    font-weight="300"
-                    fill="currentColor"
-                    opacity=".65"
-                >
-                    E
-                </text>
-                <text
-                    x="54"
-                    y="408"
-                    text-anchor="middle"
-                    font-family="Cormorant Garamond,serif"
-                    font-size="22"
-                    font-weight="300"
-                    fill="currentColor"
-                    opacity=".65"
-                >
-                    W
-                </text>
-                <text
-                    x="660"
-                    y="152"
-                    text-anchor="middle"
-                    font-family="Cormorant Garamond,serif"
-                    font-size="15"
-                    fill="currentColor"
-                    opacity=".35"
-                    transform="rotate(45 660 152)"
-                >
-                    NE
-                </text>
-                <text
-                    x="140"
-                    y="152"
-                    text-anchor="middle"
-                    font-family="Cormorant Garamond,serif"
-                    font-size="15"
-                    fill="currentColor"
-                    opacity=".35"
-                    transform="rotate(-45 140 152)"
-                >
-                    NW
-                </text>
-                <text
-                    x="660"
-                    y="660"
-                    text-anchor="middle"
-                    font-family="Cormorant Garamond,serif"
-                    font-size="15"
-                    fill="currentColor"
-                    opacity=".35"
-                    transform="rotate(-45 660 660)"
-                >
-                    SE
-                </text>
-                <text
-                    x="140"
-                    y="660"
-                    text-anchor="middle"
-                    font-family="Cormorant Garamond,serif"
-                    font-size="15"
-                    fill="currentColor"
-                    opacity=".35"
-                    transform="rotate(45 140 660)"
-                >
-                    SW
-                </text>
-                <polygon
-                    points="400,82 413,400 400,718 387,400"
-                    fill="currentColor"
-                    opacity=".82"
+
+                <!-- MAST -->
+                <path d="M14 2V14" stroke="#c9a84c" stroke-width=".8"/>
+                <!-- RIGHT SAIL TRIANGLEE-->
+                <path
+                    d="M14 3L20 9H14V3Z"
+                    fill="rgba(201,168,76,0.35)"
+                    stroke="#c9a84c"
+                    stroke-width=".6"
                 />
-                <polygon
-                    points="82,400 400,413 718,400 400,387"
-                    fill="currentColor"
-                    opacity=".52"
+                <!-- LEFT SAIL MIRRORED AND ASYMMETRICAL -->
+                <path
+                    d="M14 5L9 10H14V5Z"
+                    fill="rgba(201,168,76,0.2)"
+                    stroke="#c9a84c"
+                    stroke-width=".5"
                 />
-                <polygon
-                    points="400,82 413,400 400,718 387,400"
-                    fill="currentColor"
-                    opacity=".42"
-                    transform="rotate(45 400 400)"
+                <!-- HULL TRAPEZOID -->
+                <path
+                    d="M4 14H24L22 18H6L4 14Z"
+                    fill="rgba(201,168,76,0.25)"
+                    stroke="#c9a84c"
+                    stroke-width=".7"
                 />
-                <polygon
-                    points="400,82 413,400 400,718 387,400"
-                    fill="currentColor"
-                    opacity=".24"
-                    transform="rotate(22.5 400 400)"
-                />
-                <polygon
-                    points="400,82 413,400 400,718 387,400"
-                    fill="currentColor"
-                    opacity=".24"
-                    transform="rotate(67.5 400 400)"
-                />
-                <polygon
-                    points="400,82 413,400 400,718 387,400"
-                    fill="currentColor"
-                    opacity=".16"
-                    transform="rotate(112.5 400 400)"
-                />
-                <polygon
-                    points="400,82 413,400 400,718 387,400"
-                    fill="currentColor"
-                    opacity=".16"
-                    transform="rotate(157.5 400 400)"
-                />
-                <circle
-                    cx="400"
-                    cy="400"
-                    r="222"
-                    stroke="currentColor"
-                    stroke-width=".4"
-                    opacity=".18"
-                    stroke-dasharray="4 7"
-                />
-                <circle
-                    cx="400"
-                    cy="400"
-                    r="156"
-                    stroke="currentColor"
-                    stroke-width=".3"
-                    opacity=".14"
-                />
-                <circle
-                    cx="400"
-                    cy="400"
-                    r="20"
-                    stroke="currentColor"
-                    stroke-width="1"
-                    opacity=".62"
-                />
-                <circle
-                    cx="400"
-                    cy="400"
-                    r="9"
-                    fill="currentColor"
-                    opacity=".58"
-                />
-                <circle
-                    cx="400"
-                    cy="400"
-                    r="3"
-                    fill="currentColor"
-                    opacity="1"
+                <!-- SEXY WAVE ANIMATION -->
+                <path
+                    d="M6 18Q14 21 22 18"
+                    stroke="#c9a84c"
+                    stroke-width=".6"
+                    fill="none"
                 />
             </svg>
-        </div>
 
-        <!-- NAVBARARARAR -->
-        <nav>
-            <a class="nav-logo" href="#">
+            <div class="loader-waves">
                 <svg
-                    class="nav-logo-icon"
-                    viewBox="0 0 22 22"
-                    fill="none"
+                    viewBox="0 0 400 18"
+                    preserveAspectRatio="none"
                     xmlns="http://www.w3.org/2000/svg"
                 >
-                    <!-- MAST -->
-                    <path d="M11 2V13" stroke="#c9a84c" stroke-width=".9" />
-                    <!-- RIGHT SAIL -->
+                    <!-- FIRST WAVE -->
                     <path
-                        d="M11 2L17 8H11V2Z"
-                        fill="rgba(201,168,76,0.3)"
-                        stroke="#c9a84c"
+                        d="M0 9 Q25 2 50 9 Q75 16 100 9 Q125 2 150 9 Q175 16 200 9 Q225 2 250 9 Q275 16 300 9 Q325 2 350 9 Q375 16 400 9"
+                        stroke="rgba(201,168,76,0.3)"
+                        stroke-width="1"
+                        fill="none"
+                    />
+                    <!-- SECOND WAVE -->
+                    <path
+                        d="M0 13 Q25 7 50 13 Q75 19 100 13 Q125 7 150 13 Q175 19 200 13 Q225 7 250 13 Q275 19 300 13 Q325 7 350 13 Q375 19 400 13"
+                        stroke="rgba(201,168,76,0.15)"
                         stroke-width=".7"
-                    />
-                    <!-- LEFT SAIL -->
-                    <path
-                        d="M11 4L6 9H11V4Z"
-                        fill="rgba(201,168,76,0.18)"
-                        stroke="#c9a84c"
-                        stroke-width=".6"
-                    />
-                    <!-- HULL -->
-                    <path
-                        d="M3 13H19L17.5 17H4.5L3 13Z"
-                        fill="rgba(201,168,76,0.22)"
-                        stroke="#c9a84c"
-                        stroke-width=".7"
-                    />
-                    <!-- WAVE -->
-                    <path
-                        d="M4.5 17Q11 20 17.5 17"
-                        stroke="#c9a84c"
-                        stroke-width=".6"
                         fill="none"
                     />
                 </svg>
-                The Voyage
-            </a>
-            <div class="nav-right">
-                <ul class="nav-links">
-                    <li><button class="active" data-page="0">Home</button></li>
-                    <li><button data-page="1">About</button></li>
-                    <li><button data-page="2">Experience</button></li>
-                    <li><button data-page="3">Projects</button></li>
-                    <li><button data-page="4">Contact</button></li>
-                </ul>
-                <button
-                    class="theme-toggle"
-                    id="themeToggle"
-                    aria-label="Toggle theme"
-                ></button>
-            </div>
-        </nav>
-
-        <!-- PIRATE SHIP PROGRESS TRACKER -->
-        <div class="progress-track" id="progressTrack">
-            <div class="progress-sea">
-                <div class="progress-line"></div>
-                <div class="progress-fill" id="progressFill"></div>
-                <div class="progress-stops" id="progressStops">
-                    <div class="progress-stop passed" data-stop="0"></div>
-                    <div class="progress-stop" data-stop="1"></div>
-                    <div class="progress-stop" data-stop="2"></div>
-                    <div class="progress-stop" data-stop="3"></div>
-                    <div class="progress-stop" data-stop="4"></div>
-                </div>
-                <!-- SHIP MARK -->
-                <div class="ship-marker" id="shipMarker">
-                    <svg
-                        viewBox="0 0 26 22"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path d="M13 1V12" stroke="#c9a84c" stroke-width=".9" />
-                        <path
-                            d="M13 1L19 7H13V1Z"
-                            fill="rgba(201,168,76,0.4)"
-                            stroke="#c9a84c"
-                            stroke-width=".7"
-                        />
-                        <path
-                            d="M13 3.5L8 8H13V3.5Z"
-                            fill="rgba(201,168,76,0.24)"
-                            stroke="#c9a84c"
-                            stroke-width=".6"
-                        />
-                        <path
-                            d="M3 12H23L21 17H5L3 12Z"
-                            fill="rgba(201,168,76,0.28)"
-                            stroke="#c9a84c"
-                            stroke-width=".75"
-                        />
-                        <path
-                            d="M5 17Q13 20.5 21 17"
-                            stroke="#c9a84c"
-                            stroke-width=".65"
-                            fill="none"
-                        />
-                        <!-- WAKE LINES -->
-                        <path
-                            d="M0 16 Q2 14.5 4 16"
-                            stroke="rgba(201,168,76,0.35)"
-                            stroke-width=".5"
-                            fill="none"
-                        />
-                        <path
-                            d="M0 18 Q2 16.5 4 18"
-                            stroke="rgba(201,168,76,0.2)"
-                            stroke-width=".4"
-                            fill="none"
-                        />
-                    </svg>
-                </div>
-            </div>
-            <div class="progress-labels" id="progressLabels">
-                <div class="progress-label active" data-label="0">Port</div>
-                <div class="progress-label" data-label="1">Log</div>
-                <div class="progress-label" data-label="2">Voyage</div>
-                <div class="progress-label" data-label="3">Chart</div>
-                <div class="progress-label" data-label="4">Signal</div>
             </div>
         </div>
 
-        <!-- PAGES -->
-        <div class="pages">
-            <!-- PAGE 0: HOME PAGE -->
-            <div class="page active" id="page-0">
-                <div class="home-label">Software Developer</div>
-                <div class="home-name-line1">Anwar K.</div>
-                <div class="home-name-line2">Sadat</div>
-                <div class="home-alias">
-                    Known across the vast waters o' the internet as DopeHuxur
-                </div>
-                <p class="home-desc">
-                    Somewhere few care to map.
-                    I build immersive experiences for those drawn to
-                    thoughtful design and subtle poetry.
-                </p>
-                <button class="home-scroll-cta" data-page="1">
-                    <span class="cta-line"></span>
-                    Scroll to chart
-                </button>
-            </div>
+        <div class="loader-status" id="loaderStatus">Setting sail…</div>
+    </div>
 
-            <!-- PAGE 1: ABOUT SECTION -->
-            <div class="page" id="page-1">
-                <div class="sec-label">
-                    <span class="sec-num">01</span> About
-                </div>
-                <div class="about-grid">
-                    <div>
-                        <h2 class="about-heading">
-                            The Captain's <em>Log</em>
-                        </h2>
-                        <div class="about-body">
-                            <p>
-                                I'm a developer who believes in the poetry
-                                of code. Navigating my way through complexities
-                                with a focus on elegant solutions.
-                            </p>
-                            <p>
-                                I work primarily with web technologies and
-                                building interfaces that are both immersive
-                                and intentional. My work spans from designing
-                                complete systems from backend logic to interactive
-                                user interfaces. Always with an eye for detail and a
-                                passion for craftsmanship.
-                            </p>
-                            <p class="about-bold">
-                                Currently charting new territories in full-stack
-                                applications and exploring the intersection of design
-                                and code.
-                            </p>
-                            <div class="avail-pill">
-                                <div class="avail-dot"></div>
-                                Available for New Expeditions
-                            </div>
-                            <div class="coords" style="margin-top: 22px">
-                                Current coordinates:
-                                <span>23.8041° N, 90.4152° E</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="about-sidebar">
-                        <div>
-                            <div class="skill-group-label">Frontend</div>
-                            <div class="skill-tags">
-                                <span class="skill-tag">HTML</span
-                                ><span class="skill-tag">CSS</span
-                                ><span class="skill-tag">JavaScript</span
-                                ><!-- <span class="skill-tag">Tailwind CSS</span> -->
-                            </div>
-                        </div>
-                        <div>
-                            <div class="skill-group-label">Backend</div>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Python</span
-                                ><span class="skill-tag">Flask</span
-                                ><span class="skill-tag">SQLAlchemy</span
-                                ><span class="skill-tag">MySQL</span>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="skill-group-label">Design</div>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Figma</span
-                                ><span class="skill-tag">Photoshop</span
-                                ><span class="skill-tag">Illustrator</span
-                                ><!-- <span class="skill-tag">Typography</span> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- SMOOTH RING CURSOR -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
 
-            <!-- PAGE 2: EXPERIENCE SECTION -->
-            <div class="page" id="page-2">
-                <div class="sec-label">
-                    <span class="sec-num">02</span> Experience
-                </div>
-                <h2 class="exp-heading">Ports of <em>Call</em></h2>
-                <div class="exp-list">
-                    <div class="exp-item">
-                        <div class="exp-year">2022 — 2023</div>
-                        <div class="exp-right">
-                            <div class="exp-role">
-                                Senior Executive
-                            </div>
-                            <div class="exp-company">BRAC University Computer Club</div>
-                            <p class="exp-desc">
-                                Coordinated a team of 20+ executives to
-                                execute club events, ensured smooth collaboration
-                                across teams and alignment with organizational goals.
-                                Oversaw project workflows and contributed to events
-                                with 100+ attendees.
-                            </p>
-                            <div class="exp-tags">
-                                <span class="exp-tag">Leadership</span
-                                ><span class="exp-tag">Team Coordination</span
-                                ><span class="exp-tag">Event Management</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="exp-item">
-                        <div class="exp-year">2021 — 2022</div>
-                        <div class="exp-right">
-                            <div class="exp-role">Executive</div>
-                            <div class="exp-company">BRAC University Computer Club</div>
-                            <p class="exp-desc">
-                                Supported club operations by supervising general members,
-                                guided task execution and assisted in project delivery.
-                                Conducted training sessions on basic graphic design tools
-                                including Adobe Photoshop and Illustrator.
-                            </p>
-                            <div class="exp-tags">
-                                <span class="exp-tag">Team Support</span
-                                ><span class="exp-tag">Adobe Photoshop</span
-                                ><span class="exp-tag">Adobe Illustrator</span
-                                ><span class="exp-tag">Training</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="exp-item">
-                        <div class="exp-year">2021 — 2021</div>
-                        <div class="exp-right">
-                            <div class="exp-role">General Member</div>
-                            <div class="exp-company">BRAC University Computer Club</div>
-                            <p class="exp-desc">
-                                Designed 15+ promotional posters and digital assets for club
-                                events using Adobe Photoshop and Illustrator. Built a personal
-                                portfolio website using WordPress to showcase creative work.
-                            </p>
-                            <div class="exp-tags">
-                                <span class="exp-tag">Adobe Photoshop</span
-                                ><span class="exp-tag">Adobe Illustrator</span
-                                ><span class="exp-tag">Graphic Design</span
-                                ><span class="exp-tag">WordPress</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- ATMOSPHERE? ENVIRONMENT? -->
+    <div class="grain"></div>
+    <div class="vignette"></div>
 
-            <!-- PAGE 3: PROJECTS -->
-            <div class="page" id="page-3">
-                <div class="sec-label">
-                    <span class="sec-num">03</span> Projects
-                </div>
-                <h2 class="proj-heading">Charted <em>Territories</em></h2>
-                <div class="proj-grid">
-                    <div class="proj-card">
-                        <div class="proj-num">01</div>
-                        <div class="proj-name">Moonlight Projections</div>
-                        <p class="proj-desc">
-                            A web-based theatre ticket management system which
-                            provides a complete solution for managing movie
-                            listings, ticket bookings and administrative functions
-                            through an intuitive interface.
-                        </p>
-                        <div class="proj-tags">
-                            <span class="proj-tag">Flask</span
-                            ><span class="proj-tag">MySQL</span
-                            ><span class="proj-tag">Python</span>
-                        </div>
-                        <div class="proj-arrow">↗</div>
-                    </div>
-                    <div class="proj-card">
-                        <div class="proj-num">02</div>
-                        <div class="proj-name">The Voyage v1</div>
-                        <p class="proj-desc">
-                            A fully responsive personal portfolio website
-                            built from scratch with vanilla HTML, CSS, and
-                            JavaScript. Designed to showcase projects,
-                            skills and my contact info.
-                        </p>
-                        <div class="proj-tags">
-                            <span class="proj-tag">HTML</span
-                            ><span class="proj-tag">CSS</span
-                            ><span class="proj-tag">JavaScript</span>
-                        </div>
-                        <div class="proj-arrow">↗</div>
-                    </div>
-                    <div class="proj-card">
-                        <div class="proj-num">03</div>
-                        <div class="proj-name">Keeltrack CRM</div>
-                        <p class="proj-desc">
-                            A centralized real estate CRM analytics system that
-                            tracks every lead, deal, and property to keep 
-                            operations balanced and predictable.
-                        </p>
-                        <div class="proj-tags">
-                            <span class="proj-tag">Next.js</span
-                            ><span class="proj-tag">Django</span
-                            ><span class="proj-tag">PostgreSQL</span>
-                        </div>
-                        <div class="proj-arrow">↗</div>
-                    </div>
-                </div>
-                <button class="view-all" style="margin-top: 22px">
-                    <span
-                        style="
-                            width: 28px;
-                            height: 0.5px;
-                            background: var(--gold);
-                            display: block;
-                            transition: width 0.4s;
-                        "
-                    ></span>
-                    View all expeditions
-                </button>
-            </div>
-
-            <!-- PAGE 4: CONTACT -->
-            <div class="page" id="page-4">
-                <div class="contact-inner">
-                    <div class="contact-sec-label">04 — Contact</div>
-                    <h2 class="contact-heading">Set <em>Sail</em> Together</h2>
-                    <p class="contact-sub">
-                        Whether you have a project in mind or just wish to
-                        exchange ideas over a cup of coffee, I'll always be open to
-                        new conversations and collaborations.
-                    </p>
-                    <a href="mailto:anwarkamalsadat@gmail.com" class="contact-btn"
-                        >Send a Message →</a
-                    >
-                    <div class="contact-divider">Or find me elsewhere</div>
-                    <div class="social-links">
-                        <!-- GitHub -->
-                        <a href="https://github.com/DopeHuxur" class="social-link" title="GitHub">
-                            <svg viewBox="0 0 16 16">
-                                <path
-                                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
-                                />
-                            </svg>
-                        </a>
-                        <!-- LinkedIn -->
-                        <a href="https://www.linkedin.com/in/anwarkamalsadat/" class="social-link" title="LinkedIn">
-                            <svg viewBox="0 0 16 16">
-                                <path
-                                    d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"
-                                />
-                            </svg>
-                        </a>
-                        <!-- Instagram -->
-                        <a href="https://www.instagram.com/dopehuxur/" class="social-link" title="Instagram">
-                            <svg viewBox="0 0 16 16">
-                                <path
-                                    d="M8 3.5c-2.485 0-4.5 2.015-4.5 4.5s2.015 4.5 4.5 4.5 4.5-2.015 4.5-4.5-2.015-4.5-4.5-4.5zm0 7.5a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm4.75-7.75a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5zM4.5 1h7A3.5 3.5 0 0 1 15 4.5v7A3.5 3.5 0 0 1 11.5 15h-7A3.5 3.5 0 0 1 1 11.5v-7A3.5 3.5 0 0 1 4.5 1z"
-                                />
-                            </svg>
-                        </a>
-                        <!-- Spotify -->
-                        <a href="https://open.spotify.com/user/8gvrk8y1bnob0s9stgqsw8h7j" class="social-link" title="Spotify">
-                            <svg viewBox="0 0 16 16">
-                                <path
-                                    d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.668 11.528a.5.5 0 0 1-.686.166c-1.88-1.15-4.246-1.41-7.035-.77a.5.5 0 1 1-.223-.975c3.02-.69 5.61-.39 7.78.93a.5.5 0 0 1 .164.649zm.98-2.18a.625.625 0 0 1-.858.207c-2.154-1.324-5.434-1.707-7.982-.932a.625.625 0 1 1-.365-1.195c2.84-.866 6.38-.44 8.96 1.12a.625.625 0 0 1 .245.8zm.084-2.27c-2.57-1.53-6.81-1.67-9.26-.92a.75.75 0 1 1-.43-1.44c2.84-.86 7.56-.69 10.43 1.05a.75.75 0 1 1-.74 1.31z"
-                                />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- FOOTER -->
-        <div class="footer-bar">
-            <span class="footer-left"
-                >© 2026 The Voyage. All rights reserved.</span
+    <!-- GOD AWFUL COMPASS -->
+    <div class="compass-wrap">
+        <svg
+            class="compass-svg"
+            viewBox="0 0 800 800"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+        >
+            <circle
+                cx="400"
+                cy="400"
+                r="386"
+                stroke="currentColor"
+                stroke-width=".9"
+                opacity=".9"
+            />
+            <circle
+                cx="400"
+                cy="400"
+                r="370"
+                stroke="currentColor"
+                stroke-width=".4"
+                opacity=".5"
+            />
+            <circle
+                cx="400"
+                cy="400"
+                r="342"
+                stroke="currentColor"
+                stroke-width=".3"
+                opacity=".3"
+            />
+            <!-- Cardinal ticks -->
+            <g stroke="currentColor" stroke-width="1.2">
+                <line x1="400" y1="16" x2="400" y2="44" />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="44"
+                    transform="rotate(90 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="44"
+                    transform="rotate(180 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="44"
+                    transform="rotate(270 400 400)"
+                />
+            </g>
+            <!-- Intercardinal ticks -->
+            <g stroke="currentColor" stroke-width=".7">
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="36"
+                    transform="rotate(45 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="36"
+                    transform="rotate(135 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="36"
+                    transform="rotate(225 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="36"
+                    transform="rotate(315 400 400)"
+                />
+            </g>
+            <!-- Minor ticks every 10° -->
+            <g stroke="currentColor" stroke-width=".4">
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="28"
+                    transform="rotate(10 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="28"
+                    transform="rotate(20 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="28"
+                    transform="rotate(30 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="28"
+                    transform="rotate(40 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="28"
+                    transform="rotate(50 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="28"
+                    transform="rotate(60 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="28"
+                    transform="rotate(70 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="28"
+                    transform="rotate(80 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="28"
+                    transform="rotate(100 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="28"
+                    transform="rotate(110 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="28"
+                    transform="rotate(120 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="28"
+                    transform="rotate(130 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="28"
+                    transform="rotate(140 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="28"
+                    transform="rotate(150 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="28"
+                    transform="rotate(160 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="28"
+                    transform="rotate(170 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="28"
+                    transform="rotate(190 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="28"
+                    transform="rotate(200 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="28"
+                    transform="rotate(210 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="28"
+                    transform="rotate(220 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="28"
+                    transform="rotate(230 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="28"
+                    transform="rotate(240 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="28"
+                    transform="rotate(250 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="28"
+                    transform="rotate(260 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="28"
+                    transform="rotate(280 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="28"
+                    transform="rotate(290 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="28"
+                    transform="rotate(300 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="28"
+                    transform="rotate(310 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="28"
+                    transform="rotate(320 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="28"
+                    transform="rotate(330 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="28"
+                    transform="rotate(340 400 400)"
+                />
+                <line
+                    x1="400"
+                    y1="16"
+                    x2="400"
+                    y2="28"
+                    transform="rotate(350 400 400)"
+                />
+            </g>
+            <!-- Cardinal labels -->
+            <text
+                x="400"
+                y="70"
+                text-anchor="middle"
+                font-family="Cormorant Garamond,serif"
+                font-size="30"
+                font-weight="400"
+                fill="currentColor"
+                letter-spacing="2"
             >
-            <span class="footer-right">built with care on distant shores</span>
+                N
+            </text>
+            <text
+                x="400"
+                y="748"
+                text-anchor="middle"
+                font-family="Cormorant Garamond,serif"
+                font-size="22"
+                font-weight="300"
+                fill="currentColor"
+                opacity=".65"
+            >
+                S
+            </text>
+            <text
+                x="748"
+                y="408"
+                text-anchor="middle"
+                font-family="Cormorant Garamond,serif"
+                font-size="22"
+                font-weight="300"
+                fill="currentColor"
+                opacity=".65"
+            >
+                E
+            </text>
+            <text
+                x="54"
+                y="408"
+                text-anchor="middle"
+                font-family="Cormorant Garamond,serif"
+                font-size="22"
+                font-weight="300"
+                fill="currentColor"
+                opacity=".65"
+            >
+                W
+            </text>
+            <!-- Intercardinal labels -->
+            <text
+                x="660"
+                y="152"
+                text-anchor="middle"
+                font-family="Cormorant Garamond,serif"
+                font-size="15"
+                fill="currentColor"
+                opacity=".35"
+                transform="rotate(45 660 152)"
+            >
+                NE
+            </text>
+            <text
+                x="140"
+                y="152"
+                text-anchor="middle"
+                font-family="Cormorant Garamond,serif"
+                font-size="15"
+                fill="currentColor"
+                opacity=".35"
+                transform="rotate(-45 140 152)"
+            >
+                NW
+            </text>
+            <text
+                x="660"
+                y="660"
+                text-anchor="middle"
+                font-family="Cormorant Garamond,serif"
+                font-size="15"
+                fill="currentColor"
+                opacity=".35"
+                transform="rotate(-45 660 660)"
+            >
+                SE
+            </text>
+            <text
+                x="140"
+                y="660"
+                text-anchor="middle"
+                font-family="Cormorant Garamond,serif"
+                font-size="15"
+                fill="currentColor"
+                opacity=".35"
+                transform="rotate(45 140 660)"
+            >
+                SW
+            </text>
+            <!-- 8-point star -->
+            <polygon
+                points="400,82 413,400 400,718 387,400"
+                fill="currentColor"
+                opacity=".82"
+            />
+            <polygon
+                points="82,400 400,413 718,400 400,387"
+                fill="currentColor"
+                opacity=".52"
+            />
+            <polygon
+                points="400,82 413,400 400,718 387,400"
+                fill="currentColor"
+                opacity=".42"
+                transform="rotate(45 400 400)"
+            />
+            <polygon
+                points="400,82 413,400 400,718 387,400"
+                fill="currentColor"
+                opacity=".24"
+                transform="rotate(22.5 400 400)"
+            />
+            <polygon
+                points="400,82 413,400 400,718 387,400"
+                fill="currentColor"
+                opacity=".24"
+                transform="rotate(67.5 400 400)"
+            />
+            <polygon
+                points="400,82 413,400 400,718 387,400"
+                fill="currentColor"
+                opacity=".16"
+                transform="rotate(112.5 400 400)"
+            />
+            <polygon
+                points="400,82 413,400 400,718 387,400"
+                fill="currentColor"
+                opacity=".16"
+                transform="rotate(157.5 400 400)"
+            />
+            <!-- Inner rings -->
+            <circle
+                cx="400"
+                cy="400"
+                r="222"
+                stroke="currentColor"
+                stroke-width=".4"
+                opacity=".18"
+                stroke-dasharray="4 7"
+            />
+            <circle
+                cx="400"
+                cy="400"
+                r="156"
+                stroke="currentColor"
+                stroke-width=".3"
+                opacity=".14"
+            />
+            <circle
+                cx="400"
+                cy="400"
+                r="20"
+                stroke="currentColor"
+                stroke-width="1"
+                opacity=".62"
+            />
+            <circle
+                cx="400"
+                cy="400"
+                r="9"
+                fill="currentColor"
+                opacity=".58"
+            />
+            <circle
+                cx="400"
+                cy="400"
+                r="3"
+                fill="currentColor"
+                opacity="1"
+            />
+        </svg>
+    </div>
+
+    <!-- NAVBARARARAR -->
+    <nav>
+        <a class="nav-logo" href="#">
+            <svg
+                class="nav-logo-icon"
+                viewBox="0 0 22 22"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <!-- MAST -->
+                <path d="M11 2V13" stroke="#c9a84c" stroke-width=".9" />
+                <!-- RIGHT SAIL -->
+                <path
+                    d="M11 2L17 8H11V2Z"
+                    fill="rgba(201,168,76,0.3)"
+                    stroke="#c9a84c"
+                    stroke-width=".7"
+                />
+                <!-- LEFT SAIL -->
+                <path
+                    d="M11 4L6 9H11V4Z"
+                    fill="rgba(201,168,76,0.18)"
+                    stroke="#c9a84c"
+                    stroke-width=".6"
+                />
+                <!-- HULL -->
+                <path
+                    d="M3 13H19L17.5 17H4.5L3 13Z"
+                    fill="rgba(201,168,76,0.22)"
+                    stroke="#c9a84c"
+                    stroke-width=".7"
+                />
+                <!-- WAVE -->
+                <path
+                    d="M4.5 17Q11 20 17.5 17"
+                    stroke="#c9a84c"
+                    stroke-width=".6"
+                    fill="none"
+                />
+            </svg>
+            The Voyage
+        </a>
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><button class="active" data-page="0">Home</button></li>
+                <li><button data-page="1">About</button></li>
+                <li><button data-page="2">Experience</button></li>
+                <li><button data-page="3">Projects</button></li>
+                <li><button data-page="4">Contact</button></li>
+            </ul>
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                aria-label="Toggle theme"
+            ></button>
+        </div>
+    </nav>
+
+    <!-- SHIP PROGRESS TRACKER -->
+    <div class="progress-track" id="progressTrack">
+        <div class="progress-sea">
+            <div class="progress-line"></div>
+            <div class="progress-fill" id="progressFill"></div>
+            <div class="progress-stops" id="progressStops">
+                <div class="progress-stop passed" data-stop="0"></div>
+                <div class="progress-stop" data-stop="1"></div>
+                <div class="progress-stop" data-stop="2"></div>
+                <div class="progress-stop" data-stop="3"></div>
+                <div class="progress-stop" data-stop="4"></div>
+            </div>
+
+            <!-- SHIP MARKER -->
+            <div class="ship-marker" id="shipMarker">
+                <svg
+                    viewBox="0 0 26 22"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path d="M13 1V12" stroke="#c9a84c" stroke-width=".9" />
+                    <path
+                        d="M13 1L19 7H13V1Z"
+                        fill="rgba(201,168,76,0.4)"
+                        stroke="#c9a84c"
+                        stroke-width=".7"
+                    />
+                    <path
+                        d="M13 3.5L8 8H13V3.5Z"
+                        fill="rgba(201,168,76,0.24)"
+                        stroke="#c9a84c"
+                        stroke-width=".6"
+                    />
+                    <path
+                        d="M3 12H23L21 17H5L3 12Z"
+                        fill="rgba(201,168,76,0.28)"
+                        stroke="#c9a84c"
+                        stroke-width=".75"
+                    />
+                    <path
+                        d="M5 17Q13 20.5 21 17"
+                        stroke="#c9a84c"
+                        stroke-width=".65"
+                        fill="none"
+                    />
+                    <!-- WAKE LINES -->
+                    <path
+                        d="M0 16 Q2 14.5 4 16"
+                        stroke="rgba(201,168,76,0.35)"
+                        stroke-width=".5"
+                        fill="none"
+                    />
+                    <path
+                        d="M0 18 Q2 16.5 4 18"
+                        stroke="rgba(201,168,76,0.2)"
+                        stroke-width=".4"
+                        fill="none"
+                    />
+                </svg>
+            </div>
         </div>
 
-        <script src="js/loader.js"></script>
-        <script src="js/navigation.js"></script>
-        <script src="js/main.js"></script>
-        
-    </body>
+        <div class="progress-labels" id="progressLabels">
+            <div class="progress-label active" data-label="0">Port</div>
+            <div class="progress-label" data-label="1">Log</div>
+            <div class="progress-label" data-label="2">Voyage</div>
+            <div class="progress-label" data-label="3">Chart</div>
+            <div class="progress-label" data-label="4">Signal</div>
+        </div>
+    </div>
+
+    <!-- PAGES -->
+    <div class="pages">
+        <!-- PAGE 0: HOME PAGE -->
+        <div class="page active" id="page-0">
+            <div class="home-label">Software Developer</div>
+            <div class="home-name-line1">Anwar K.</div>
+            <div class="home-name-line2">Sadat</div>
+            <div class="home-alias">
+                Known across the vast waters o' the internet as DopeHuxur
+            </div>
+            <p class="home-desc">
+                Somewhere few care to map.
+                I build immersive experiences for those drawn to
+                thoughtful design and subtle poetry.
+            </p>
+            <button class="home-scroll-cta" data-page="1">
+                <span class="cta-line"></span>
+                Scroll to chart
+            </button>
+        </div>
+
+        <!-- PAGE 1: ABOUT SECTION -->
+        <div class="page" id="page-1">
+            <div class="sec-label">
+                <span class="sec-num">01</span> About
+            </div>
+            <div class="about-grid">
+                <div>
+                    <h2 class="about-heading">
+                        The Captain's <em>Log</em>
+                    </h2>
+                    <div class="about-body">
+                        <p>
+                            I'm a developer who believes in the poetry
+                            of code. Navigating my way through complexities
+                            with a focus on elegant solutions.
+                        </p>
+                        <p>
+                            I work primarily with web technologies and
+                            building interfaces that are both immersive
+                            and intentional. My work spans from designing
+                            complete systems from backend logic to interactive
+                            user interfaces. Always with an eye for detail and a
+                            passion for craftsmanship.
+                        </p>
+                        <p class="about-bold">
+                            Currently charting new territories in full-stack
+                            applications and exploring the intersection of design
+                            and code.
+                        </p>
+                        <div class="avail-pill">
+                            <div class="avail-dot"></div>
+                            Available for New Expeditions
+                        </div>
+                        <div class="coords" style="margin-top: 22px">
+                            Current coordinates:
+                            <span>23.8041° N, 90.4152° E</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-sidebar">
+                    <div>
+                        <div class="skill-group-label">Frontend</div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">HTML</span
+                            ><span class="skill-tag">CSS</span
+                            ><span class="skill-tag">JavaScript</span
+                            ><!-- <span class="skill-tag">Tailwind CSS</span> -->
+                        </div>
+                    </div>
+                    <div>
+                        <div class="skill-group-label">Backend</div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span
+                            ><span class="skill-tag">Flask</span
+                            ><span class="skill-tag">SQLAlchemy</span
+                            ><span class="skill-tag">MySQL</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="skill-group-label">Design</div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Figma</span
+                            ><span class="skill-tag">Photoshop</span
+                            ><span class="skill-tag">Illustrator</span
+                            ><!-- <span class="skill-tag">Typography</span> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE 2: EXPERIENCE SECTION -->
+        <div class="page" id="page-2">
+            <div class="sec-label">
+                <span class="sec-num">02</span> Experience
+            </div>
+            <h2 class="exp-heading">Ports of <em>Call</em></h2>
+            <div class="exp-list">
+                <div class="exp-item">
+                    <div class="exp-year">2022 — 2023</div>
+                    <div class="exp-right">
+                        <div class="exp-role">
+                            Senior Executive
+                        </div>
+                        <div class="exp-company">BRAC University Computer Club</div>
+                        <p class="exp-desc">
+                            Coordinated a team of 20+ executives to
+                            execute club events, ensured smooth collaboration
+                            across teams and alignment with organizational goals.
+                            Oversaw project workflows and contributed to events
+                            with 100+ attendees.
+                        </p>
+                        <div class="exp-tags">
+                            <span class="exp-tag">Leadership</span
+                            ><span class="exp-tag">Team Coordination</span
+                            ><span class="exp-tag">Event Management</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="exp-item">
+                    <div class="exp-year">2021 — 2022</div>
+                    <div class="exp-right">
+                        <div class="exp-role">Executive</div>
+                        <div class="exp-company">BRAC University Computer Club</div>
+                        <p class="exp-desc">
+                            Supported club operations by supervising general members,
+                            guided task execution and assisted in project delivery.
+                            Conducted training sessions on basic graphic design tools
+                            including Adobe Photoshop and Illustrator.
+                        </p>
+                        <div class="exp-tags">
+                            <span class="exp-tag">Team Support</span
+                            ><span class="exp-tag">Adobe Photoshop</span
+                            ><span class="exp-tag">Adobe Illustrator</span
+                            ><span class="exp-tag">Training</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="exp-item">
+                    <div class="exp-year">2021 — 2021</div>
+                    <div class="exp-right">
+                        <div class="exp-role">General Member</div>
+                        <div class="exp-company">BRAC University Computer Club</div>
+                        <p class="exp-desc">
+                            Designed 15+ promotional posters and digital assets for club
+                            events using Adobe Photoshop and Illustrator. Built a personal
+                            portfolio website using WordPress to showcase creative work.
+                        </p>
+                        <div class="exp-tags">
+                            <span class="exp-tag">Adobe Photoshop</span
+                            ><span class="exp-tag">Adobe Illustrator</span
+                            ><span class="exp-tag">Graphic Design</span
+                            ><span class="exp-tag">WordPress</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE 3: PROJECTS -->
+        <div class="page" id="page-3">
+            <div class="sec-label">
+                <span class="sec-num">03</span> Projects
+            </div>
+            <h2 class="proj-heading">Charted <em>Territories</em></h2>
+            <div class="proj-grid">
+                <div class="proj-card">
+                    <div class="proj-num">01</div>
+                    <div class="proj-name">Moonlight Projections</div>
+                    <p class="proj-desc">
+                        A web-based theatre ticket management system which
+                        provides a complete solution for managing movie
+                        listings, ticket bookings and administrative functions
+                        through an intuitive interface.
+                    </p>
+                    <div class="proj-tags">
+                        <span class="proj-tag">Flask</span
+                        ><span class="proj-tag">MySQL</span
+                        ><span class="proj-tag">Python</span>
+                    </div>
+                    <div class="proj-arrow">↗</div>
+                </div>
+                <div class="proj-card">
+                    <div class="proj-num">02</div>
+                    <div class="proj-name">The Voyage v1</div>
+                    <p class="proj-desc">
+                        A fully responsive personal portfolio website
+                        built from scratch with vanilla HTML, CSS, and
+                        JavaScript. Designed to showcase projects,
+                        skills and my contact info.
+                    </p>
+                    <div class="proj-tags">
+                        <span class="proj-tag">HTML</span
+                        ><span class="proj-tag">CSS</span
+                        ><span class="proj-tag">JavaScript</span>
+                    </div>
+                    <div class="proj-arrow">↗</div>
+                </div>
+                <div class="proj-card">
+                    <div class="proj-num">03</div>
+                    <div class="proj-name">Keeltrack CRM</div>
+                    <p class="proj-desc">
+                        A centralized real estate CRM analytics system that
+                        tracks every lead, deal, and property to keep 
+                        operations balanced and predictable.
+                    </p>
+                    <div class="proj-tags">
+                        <span class="proj-tag">Next.js</span
+                        ><span class="proj-tag">Django</span
+                        ><span class="proj-tag">PostgreSQL</span>
+                    </div>
+                    <div class="proj-arrow">↗</div>
+                </div>
+            </div>
+            <button class="view-all" style="margin-top: 22px">
+                <span
+                    style="
+                        width: 28px;
+                        height: 0.5px;
+                        background: var(--gold);
+                        display: block;
+                        transition: width 0.4s;
+                    "
+                ></span>
+                View all expeditions
+            </button>
+        </div>
+
+        <!-- PAGE 4: CONTACT -->
+        <div class="page" id="page-4">
+            <div class="contact-inner">
+                <div class="contact-sec-label">04 — Contact</div>
+                <h2 class="contact-heading">Set <em>Sail</em> Together</h2>
+                <p class="contact-sub">
+                    Whether you have a project in mind or just wish to
+                    exchange ideas over a cup of coffee, I'll always be open to
+                    new conversations and collaborations.
+                </p>
+                <a href="mailto:anwarkamalsadat@gmail.com" class="contact-btn"
+                    >Send a Message →</a
+                >
+                <div class="contact-divider">Or find me elsewhere</div>
+                <div class="social-links">
+                    <!-- GitHub -->
+                    <a href="https://github.com/DopeHuxur" class="social-link" title="GitHub">
+                        <svg viewBox="0 0 16 16">
+                            <path
+                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+                            />
+                        </svg>
+                    </a>
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/anwarkamalsadat/" class="social-link" title="LinkedIn">
+                        <svg viewBox="0 0 16 16">
+                            <path
+                                d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"
+                            />
+                        </svg>
+                    </a>
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/dopehuxur/" class="social-link" title="Instagram">
+                        <svg viewBox="0 0 16 16">
+                            <path
+                                d="M8 3.5c-2.485 0-4.5 2.015-4.5 4.5s2.015 4.5 4.5 4.5 4.5-2.015 4.5-4.5-2.015-4.5-4.5-4.5zm0 7.5a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm4.75-7.75a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5zM4.5 1h7A3.5 3.5 0 0 1 15 4.5v7A3.5 3.5 0 0 1 11.5 15h-7A3.5 3.5 0 0 1 1 11.5v-7A3.5 3.5 0 0 1 4.5 1z"
+                            />
+                        </svg>
+                    </a>
+                    <!-- Spotify -->
+                    <a href="https://open.spotify.com/user/8gvrk8y1bnob0s9stgqsw8h7j" class="social-link" title="Spotify">
+                        <svg viewBox="0 0 16 16">
+                            <path
+                                d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.668 11.528a.5.5 0 0 1-.686.166c-1.88-1.15-4.246-1.41-7.035-.77a.5.5 0 1 1-.223-.975c3.02-.69 5.61-.39 7.78.93a.5.5 0 0 1 .164.649zm.98-2.18a.625.625 0 0 1-.858.207c-2.154-1.324-5.434-1.707-7.982-.932a.625.625 0 1 1-.365-1.195c2.84-.866 6.38-.44 8.96 1.12a.625.625 0 0 1 .245.8zm.084-2.27c-2.57-1.53-6.81-1.67-9.26-.92a.75.75 0 1 1-.43-1.44c2.84-.86 7.56-.69 10.43 1.05a.75.75 0 1 1-.74 1.31z"
+                            />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer-bar">
+        <span class="footer-left"
+            >© 2026 The Voyage. All rights reserved.</span
+        >
+        <span class="footer-right">built with care on distant shores</span>
+    </div>
+
+    <script src="js/loader.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
 </html>
