@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>DopeHuxur's Portfolio</title>
+        <title>The Voyage // DopeHuxur's Portfolio</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="css/pages.css" />
     </head>
     <body>
-        <!-- ═══ LOADER ═══ -->
+        <!-- FANCY FAKE LOADING SCREEN -->
         <div id="loader">
             <div class="loader-emblem">
                 <div class="loader-title">The Voyage</div>
@@ -27,7 +27,7 @@
             <div class="loader-sea">
                 <div class="loader-horizon"></div>
                 <div class="loader-horizon-fill"></div>
-                <!-- tiny ship -->
+                <!-- PIRATE SHIP LOADING ANIMATION -->
                 <svg
                     class="loader-ship-svg"
                     width="28"
@@ -36,25 +36,30 @@
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                 >
+                    <!-- MAST -->
                     <path d="M14 2V14" stroke="#c9a84c" stroke-width=".8" />
+                    <!-- RIGHT SAIL TRIANGLEE-->
                     <path
                         d="M14 3L20 9H14V3Z"
                         fill="rgba(201,168,76,0.35)"
                         stroke="#c9a84c"
                         stroke-width=".6"
                     />
+                    <!-- LEFT SAIL MIRRORED AND ASYMMETRICAL -->
                     <path
                         d="M14 5L9 10H14V5Z"
                         fill="rgba(201,168,76,0.2)"
                         stroke="#c9a84c"
                         stroke-width=".5"
                     />
+                    <!-- HULL TRAPEZOID -->
                     <path
                         d="M4 14H24L22 18H6L4 14Z"
                         fill="rgba(201,168,76,0.25)"
                         stroke="#c9a84c"
                         stroke-width=".7"
                     />
+                    <!-- SEXY WAAVE ANIMATION -->
                     <path
                         d="M6 18Q14 21 22 18"
                         stroke="#c9a84c"
@@ -68,12 +73,14 @@
                         preserveAspectRatio="none"
                         xmlns="http://www.w3.org/2000/svg"
                     >
+                        <!-- FIRST WAVE -->
                         <path
                             d="M0 9 Q25 2 50 9 Q75 16 100 9 Q125 2 150 9 Q175 16 200 9 Q225 2 250 9 Q275 16 300 9 Q325 2 350 9 Q375 16 400 9"
                             stroke="rgba(201,168,76,0.3)"
                             stroke-width="1"
                             fill="none"
                         />
+                        <!-- SECOND WAVE -->
                         <path
                             d="M0 13 Q25 7 50 13 Q75 19 100 13 Q125 7 150 13 Q175 19 200 13 Q225 7 250 13 Q275 19 300 13 Q325 7 350 13 Q375 19 400 13"
                             stroke="rgba(201,168,76,0.15)"
@@ -86,13 +93,13 @@
             <div class="loader-status" id="loaderStatus">Setting sail…</div>
         </div>
 
-        <!-- CURSOR -->
+        <!-- SMOOTH RING CURSOR -->
         <div class="cursor" id="cursor"></div>
         <div class="cursor-ring" id="cursorRing"></div>
         <div class="grain"></div>
         <div class="vignette"></div>
 
-        <!-- COMPASS -->
+        <!-- GOD AWFUL COMPASS -->
         <div class="compass-wrap">
             <svg
                 class="compass-svg"
@@ -582,7 +589,7 @@
             </svg>
         </div>
 
-        <!-- NAV -->
+        <!-- NAVBARARARAR -->
         <nav>
             <a class="nav-logo" href="#">
                 <svg
@@ -591,25 +598,30 @@
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                 >
+                    <!-- MAST -->
                     <path d="M11 2V13" stroke="#c9a84c" stroke-width=".9" />
+                    <!-- RIGHT SAIL -->
                     <path
                         d="M11 2L17 8H11V2Z"
                         fill="rgba(201,168,76,0.3)"
                         stroke="#c9a84c"
                         stroke-width=".7"
                     />
+                    <!-- LEFT SAIL -->
                     <path
                         d="M11 4L6 9H11V4Z"
                         fill="rgba(201,168,76,0.18)"
                         stroke="#c9a84c"
                         stroke-width=".6"
                     />
+                    <!-- HULL -->
                     <path
                         d="M3 13H19L17.5 17H4.5L3 13Z"
                         fill="rgba(201,168,76,0.22)"
                         stroke="#c9a84c"
                         stroke-width=".7"
                     />
+                    <!-- WAVE -->
                     <path
                         d="M4.5 17Q11 20 17.5 17"
                         stroke="#c9a84c"
@@ -622,8 +634,8 @@
             <div class="nav-right">
                 <ul class="nav-links">
                     <li><button class="active" data-page="0">Home</button></li>
-                    <li><button data-page="1">Log</button></li>
-                    <li><button data-page="2">Voyages</button></li>
+                    <li><button data-page="1">About</button></li>
+                    <li><button data-page="2">Experience</button></li>
                     <li><button data-page="3">Projects</button></li>
                     <li><button data-page="4">Contact</button></li>
                 </ul>
@@ -647,7 +659,7 @@
                     <div class="progress-stop" data-stop="3"></div>
                     <div class="progress-stop" data-stop="4"></div>
                 </div>
-                <!-- Ship marker -->
+                <!-- SHIP MARK -->
                 <div class="ship-marker" id="shipMarker">
                     <svg
                         viewBox="0 0 26 22"
@@ -679,7 +691,7 @@
                             stroke-width=".65"
                             fill="none"
                         />
-                        <!-- tiny wake lines -->
+                        <!-- WAKE LINES -->
                         <path
                             d="M0 16 Q2 14.5 4 16"
                             stroke="rgba(201,168,76,0.35)"
@@ -706,7 +718,7 @@
 
         <!-- PAGES -->
         <div class="pages">
-            <!-- PAGE 0: HOME -->
+            <!-- PAGE 0: HOME PAGE -->
             <div class="page active" id="page-0">
                 <div class="home-label">Software Developer</div>
                 <div class="home-name-line1">Anwar K.</div>
@@ -715,9 +727,9 @@
                     Known across the vast waters o' the internet as DopeHuxur
                 </div>
                 <p class="home-desc">
-                    Somewhere nobody maps. I believe the web is still an
-                    uncharted territory. A place for quiet voyagers who seek the
-                    vastness worth crossing.
+                    Somewhere few care to map.
+                    I build immersive experiences for those drawn to
+                    thoughtful design and subtle poetry.
                 </p>
                 <button class="home-scroll-cta" data-page="1">
                     <span class="cta-line"></span>
@@ -725,7 +737,7 @@
                 </button>
             </div>
 
-            <!-- PAGE 1: LOG (ABOUT) -->
+            <!-- PAGE 1: ABOUT SECTION -->
             <div class="page" id="page-1">
                 <div class="sec-label">
                     <span class="sec-num">01</span> About
@@ -737,27 +749,26 @@
                         </h2>
                         <div class="about-body">
                             <p>
-                                I'm a developer who believes in the poetry of
-                                code. Like a navigator reading the stars, I
-                                chart courses through complex problems, finding
-                                elegant solutions in the digital expanse.
+                                I'm a developer who believes in the poetry
+                                of code. Navigating my way through complexities
+                                with a focus on elegant solutions.
                             </p>
                             <p>
-                                With over a decade of voyaging through the
-                                ever-changing tides of web development, I've
-                                learned that the best experiences come from
-                                understanding both the depths and the
-                                surface—the architecture beneath and the polish
-                                above.
+                                I work primarily with web technologies and
+                                building interfaces that are both immersive
+                                and intentional. My work spans from designing
+                                complete systems from backend logic to interactive
+                                user interfaces. Always with an eye for detail and a
+                                passion for craftsmanship.
                             </p>
                             <p class="about-bold">
-                                Currently charting new territories in creative
-                                development, crafting interfaces that feel as
-                                natural as the wind in the sails.
+                                Currently charting new territories in full-stack
+                                applications and exploring the intersection of design
+                                and code.
                             </p>
                             <div class="avail-pill">
                                 <div class="avail-dot"></div>
-                                Available for new expeditions
+                                Available for New Expeditions
                             </div>
                             <div class="coords" style="margin-top: 22px">
                                 Current coordinates:
@@ -769,10 +780,10 @@
                         <div>
                             <div class="skill-group-label">Frontend</div>
                             <div class="skill-tags">
-                                <span class="skill-tag">React</span
-                                ><span class="skill-tag">Next.js</span
-                                ><span class="skill-tag">TypeScript</span
-                                ><span class="skill-tag">Tailwind CSS</span>
+                                <span class="skill-tag">HTML</span
+                                ><span class="skill-tag">CSS</span
+                                ><span class="skill-tag">JavaScript</span
+                                ><!-- <span class="skill-tag">Tailwind CSS</span> -->
                             </div>
                         </div>
                         <div>
