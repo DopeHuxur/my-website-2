@@ -379,7 +379,7 @@ nav {
 }
 
 .progress-sea {
-    width: 180px;
+    width: 280px;
     height: 36px;
     position: relative;
     overflow: visible;
@@ -450,7 +450,7 @@ nav {
 
 /* PROGRESS BAR LABELS */
 .progress-labels {
-    width: 180px;
+    width: 280px;
     display: flex;
     justify-content: space-between;
     margin-top: 6px;
