@@ -330,6 +330,8 @@
 }
 
 .proj-card {
+    display: block;
+    text-decoration: none;
     padding: 28px;
     background: var(--surf);
     border: 0.5px solid var(--border);
@@ -337,7 +339,7 @@
     position: relative;
     overflow: hidden;
     cursor: none;
-    transition: background 0.45s ease, border-color 0.45s ease;
+    transition: background 0.45s ease, border-color 0.45s ease, transform 0.45s ease;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
 }
@@ -355,6 +357,7 @@
 .proj-card:hover {
     background: var(--surf2);
     border-color: var(--gold-border);
+  transform: translateY(-2px);
 }
 
 .proj-num {
@@ -425,6 +428,7 @@
     font-family: 'Inter', sans-serif;
     font-weight: 300;
     padding: 0;
+    text-decoration: none;
     transition: gap 0.4s ease, opacity 0.3s ease;
 }
 
