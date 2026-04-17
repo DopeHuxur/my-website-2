@@ -124,6 +124,7 @@
     pointer-events: none;
     z-index: 8999;
     transform: translate(-50%, -50%);
+    display: none;
 }
 
 [data-theme="dark"] .cursor {
@@ -152,8 +153,8 @@ nav {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 500;
-    padding: 22px 52px;
+    z-index: 600;
+    padding: 20px 48px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -175,6 +176,7 @@ nav {
     color: var(--text);
     text-decoration: none;
     cursor: none;
+    z-index: 1;
 }
 
 .nav-logo-icon {
@@ -186,12 +188,12 @@ nav {
 .nav-right {
     display: flex;
     align-items: center;
-    gap: 36px;
+    gap: 32px;
 }
 
 .nav-links {
     display: flex;
-    gap: 32px;
+    gap: 28px;
     list-style: none;
 }
 
@@ -240,44 +242,144 @@ nav {
     border-radius: 100px;
     cursor: none;
     position: relative;
-    transition: background 0.4s ease;
+    transition: background 0.4s;
     flex-shrink: 0;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
 }
 
 .theme-toggle::after {
-    content: '';
-    position: absolute;
-    top: 3px;
-    left: 3px;
-    width: 13px;
-    height: 13px;
-    background: var(--gold);
+    content: ''; position: absolute; top: 3px; left: 3px;
+    width: 13px; height: 13px; background: var(--gold); border-radius: 50%;
+    transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+[data-theme="light"] .theme-toggle::after { transform: translateX(19px); }
+
+/* HAMBURGER BUTTON */
+.hamburger {
+    display: none;
+    width: 42px; height: 42px;
+    background: var(--surf);
+    border: 0.5px solid var(--border);
     border-radius: 50%;
-    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
+    position: relative;
+    align-items: center; justify-content: center;
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    transition: background 0.3s, border-color 0.3s;
+    flex-shrink: 0;
+    z-index: 700;
 }
 
-[data-theme="light"] .theme-toggle::after {
-    transform: translateX(19px);
+.hamburger:hover { background: var(--gold-dim); border-color: var(--gold-border); }
+
+/* PIRATE STEERING WHEEL */
+.hamburger-wheel {
+    width: 22px; height: 22px;
+    transition: transform 0.7s cubic-bezier(0.34,1.56,0.64,1);
+    color: var(--muted);
+}
+
+.hamburger:hover .hamburger-wheel { color: var(--gold); }
+
+/* WHEEL SPIN */
+.hamburger.open .hamburger-wheel {
+    animation: wheelSpin 0.65s cubic-bezier(0.34,1.56,0.64,1) forwards;
+    color: var(--gold);
+}
+
+.hamburger.closing .hamburger-wheel {
+    animation: wheelSpinRev 0.5s ease forwards;
+}
+
+/* MOBILE NAV OVERLAY MENU */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 72px; left: 16px; right: 16px;
+    z-index: 590;
+    background: var(--nav);
+    backdrop-filter: blur(40px) saturate(1.8);
+    -webkit-backdrop-filter: blur(40px) saturate(1.8);
+    border: 0.5px solid var(--border);
+    border-radius: 18px;
+    padding: 8px;
+    overflow: hidden;
+}
+
+.mobile-menu.open {
+    display: block;
+    animation: menuSlideIn 0.38s cubic-bezier(0.34,1.56,0.64,1) forwards;
+}
+
+/* SPECULAR EDGE */
+.mobile-menu::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.22), transparent);
+}
+
+.mobile-menu-item {
+    display: flex; align-items: center; justify-content: space-between;
+    width: 100%; padding: 14px 20px;
+    background: none; border: none;
+    font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 300;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted); cursor: pointer;
+    border-radius: 12px;
+    transition: background 0.25s, color 0.25s;
+    position: relative;
+}
+
+.mobile-menu-item:hover, .mobile-menu-item.active {
+    background: var(--gold-dim);
+    color: var(--gold);
+}
+
+.mobile-menu-item .item-num {
+    font-size: 10px; color: var(--dim); letter-spacing: 0.1em;
+}
+
+.mobile-menu-item.active .item-num { color: var(--gold-text); }
+
+/* DIVIDER BETWEEN ITEMS */
+.mobile-menu-item + .mobile-menu-item::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 20px;
+    right: 20px;
+    height: 0.5px;
+    background: var(--border);
+}
+
+/* BOTTOM STRIP WITH THEME TOGGLE INSIDE MENU */
+.mobile-menu-footer {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 20px 6px;
+    border-top: 0.5px solid var(--border);
+    margin-top: 4px;
+}
+.mobile-menu-footer-label {
+    font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--dim);
 }
 
 /* SHIP PROGRESS BAR */
 .progress-track {
     position: fixed;
     left: 50%;
-    bottom: 62px;
+    bottom: 58px;
     transform: translateX(-50%);
     z-index: 400;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0;
     pointer-events: none;
 }
 
 .progress-sea {
-    width: 280px;
+    width: 180px;
     height: 36px;
     position: relative;
     overflow: visible;
@@ -322,7 +424,7 @@ nav {
     border-radius: 50%;
     background: var(--border);
     border: 0.5px solid var(--border);
-    transition: background 0.4s ease, transform 0.4s ease;
+    transition: background 0.4s, transform 0.4s;
     flex-shrink: 0;
 }
 
@@ -348,7 +450,7 @@ nav {
 
 /* PROGRESS BAR LABELS */
 .progress-labels {
-    width: 280px;
+    width: 180px;
     display: flex;
     justify-content: space-between;
     margin-top: 6px;
@@ -359,7 +461,7 @@ nav {
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--dim);
-    transition: color 0.4s ease;
+    transition: color 0.4s;
     text-align: center;
     width: 32px;
 }
@@ -375,7 +477,7 @@ nav {
     left: 0;
     right: 0;
     z-index: 400;
-    padding: 14px 52px;
+    padding: 12px 48px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -396,4 +498,33 @@ nav {
     font-size: 9px;
     color: var(--dim);
     letter-spacing: 0.1em;
+}
+
+/* RESPONSIVENESS — MOBILE */
+@media (max-width: 768px) {
+    nav { padding: 14px 20px; }
+
+    /* HIDE DESKTOP NAV */
+    .nav-links, .theme-toggle { display: none; }
+    .nav-right { gap: 12px; }
+
+    /* HAMBURGIR PLS */
+    .hamburger { display: flex; }
+
+    /* SHRINK PROGRESS BAR */
+    .progress-track { bottom: 54px; }
+    .progress-sea { width: 140px; }
+    .progress-labels { width: 140px; }
+    .progress-label { width: 24px; font-size: 7px; }
+
+    /* FOOTER */
+    .footer-bar { padding: 10px 20px; }
+    .footer-right { display: none; }
+
+    /* HIDE DESKTOP CURSOR */
+    .cursor, .cursor-ring { display: none !important; }
+}
+
+@media (max-width: 400px) {
+    .progress-track { display: none; }
 }
