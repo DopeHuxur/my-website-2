@@ -6,10 +6,10 @@
 (function initNavigation() {
     /* CONFIG */
     const TOTAL_PAGES    = 5;
-    const ANIM_DURATION  = 720;  // ms — matches CSS --tr duration
-    const ENTER_DELAY    = 55;   // ms — stagger between exit start and enter start
-    const WHEEL_COOLDOWN = 880;  // ms — prevent rapid wheel firing
-    const SWIPE_THRESHOLD = 40;  // px — minimum swipe distance to trigger
+    const ANIM_DURATION  = 720;  // ms - matches CSS --tr duration
+    const ENTER_DELAY    = 55;   // ms - stagger between exit start and enter start
+    const WHEEL_COOLDOWN = 880;  // ms - prevent rapid wheel firing
+    const SWIPE_THRESHOLD = 40;  // px - minimum swipe distance to trigger
 
     /* STATE */
     let current   = 0;
