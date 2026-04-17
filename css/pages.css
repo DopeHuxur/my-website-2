@@ -13,7 +13,7 @@
     inset: 0;
     display: flex;
     flex-direction: column;
-    padding: 86px 52px 88px;
+    padding: 88px 52px 86px;
     opacity: 0;
     pointer-events: none;
     transform: translateY(34px);
@@ -44,6 +44,43 @@
     pointer-events: none;
 }
 
+/* PAGE CONTAINER FOR MOBILE (NATURAL SCROLL) */
+@media (max-width: 768px) {
+    body { overflow-y: auto; }
+
+    .pages {
+        position: relative;
+        inset: unset;
+        display: flex;
+        flex-direction: column;
+        /* TOP PADDING TO CLEAR NAV */
+        padding-top: 66px;
+        /* BOTTOM PADDING TO CLEAR FOOTER */
+        padding-bottom: 64px;
+    }
+
+    .page {
+        position: relative;
+        inset: unset;
+        opacity: 1 !important;
+        transform: none !important;
+        pointer-events: all !important;
+        transition: none;
+        padding: 48px 22px 56px;
+        /* SEPARATOR LINE BETWEEN PAGES */
+        border-bottom: 0.5px solid var(--border);
+    }
+    .page:last-child { border-bottom: none; }
+
+    /* COMPASS FIXED BEHIND ON MOBILE */
+    .compass-wrap {
+        position: fixed;
+        width: min(180vw, 180vw);
+        height: min(180vw, 180vw);
+        opacity: calc(var(--comp-op) * 0.7);
+    }
+}
+
 /* PAGE 0 - HOME */
 #page-0 {
     justify-content: flex-end;
@@ -54,12 +91,12 @@
     letter-spacing: 0.28em;
     text-transform: uppercase;
     color: var(--muted);
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 
 .home-name-line1 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(60px, 9vw, 112px);
+    font-size: clamp(52px, 9vw, 112px);
     font-weight: 300;
     line-height: 0.96;
     letter-spacing: -0.02em;
@@ -68,20 +105,20 @@
 
 .home-name-line2 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(60px, 9vw, 112px);
+    font-size: clamp(52px, 9vw, 112px);
     font-weight: 400;
     font-style: italic;
     line-height: 0.96;
     letter-spacing: -0.02em;
     color: var(--gold);
-    margin-bottom: 32px;
+    margin-bottom: 28px;
 }
 
 .home-alias {
     font-size: 11px;
     color: var(--dim);
     letter-spacing: 0.12em;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
 }
 
 .home-desc {
@@ -89,7 +126,7 @@
     color: var(--muted);
     line-height: 1.8;
     max-width: 380px;
-    margin-bottom: 44px;
+    margin-bottom: 40px;
 }
 
 .home-scroll-cta {
@@ -121,8 +158,11 @@
     transition: width 0.4s ease;
 }
 
-.home-scroll-cta:hover .cta-line {
-    width: 54px;
+.home-scroll-cta:hover .cta-line { width: 54px; }
+
+@media (max-width: 768px) {
+    #page-0 { justify-content: flex-start; min-height: 80vh; }
+    .home-scroll-cta { cursor: pointer; }
 }
 
 /* PAGE 1 - ABOUT */
@@ -132,20 +172,20 @@
 
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 340px;
-    gap: 52px;
+    grid-template-columns: 1fr 320px;
+    gap: 48px;
     align-items: start;
     margin-top: 8px;
 }
 
 .about-heading {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(36px, 5vw, 58px);
+    font-size: clamp(32px, 5vw, 58px);
     font-weight: 300;
     line-height: 1.1;
     letter-spacing: -0.01em;
     color: var(--text);
-    margin-bottom: 32px;
+    margin-bottom: 28px;
 }
 
 .about-heading em {
@@ -157,7 +197,7 @@
     font-size: 13.5px;
     color: var(--muted);
     line-height: 1.85;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
 }
 
 .about-bold {
@@ -165,7 +205,7 @@
     font-weight: 400;
     color: var(--text);
     line-height: 1.8;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
 }
 
 .coords {
@@ -184,7 +224,7 @@
 .about-sidebar {
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 24px;
 }
 
 .skill-group-label {
@@ -212,13 +252,18 @@
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     cursor: none;
-    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .skill-tag:hover {
     background: var(--gold-dim);
     border-color: var(--gold-border);
     color: var(--gold);
+}
+
+@media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    .skill-tag { cursor: default; }
 }
 
 /* PAGE 2 - Experience */
@@ -228,11 +273,11 @@
 
 .exp-heading {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(32px, 4.5vw, 52px);
+    font-size: clamp(28px, 4.5vw, 52px);
     font-weight: 300;
     line-height: 1.1;
     color: var(--text);
-    margin-bottom: 36px;
+    margin-bottom: 32px;
 }
 
 .exp-heading em {
@@ -243,14 +288,13 @@
 .exp-list {
     display: flex;
     flex-direction: column;
-    gap: 0;
 }
 
 .exp-item {
     display: grid;
     grid-template-columns: 130px 1fr;
-    gap: 28px;
-    padding: 24px 0;
+    gap: 24px;
+    padding: 22px 0;
     border-bottom: 0.5px solid var(--border);
 }
 
@@ -266,7 +310,7 @@
 }
 
 .exp-role {
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 400;
     color: var(--text);
     margin-bottom: 4px;
@@ -304,6 +348,15 @@
     color: var(--dim);
 }
 
+@media (max-width: 768px) {
+    .exp-item { grid-template-columns: 1fr; gap: 6px; padding: 20px 0; }
+    .exp-year { font-size: 10px; padding-top: 0; }
+    .exp-desc { max-width: 100%; }
+}
+@media (max-width: 480px) {
+    .exp-role { font-size: 15px; }
+}
+
 /* PAGE 3 - Projects */
 #page-3 {
     justify-content: flex-start;
@@ -311,11 +364,11 @@
 
 .proj-heading {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(32px, 4.5vw, 52px);
+    font-size: clamp(28px, 4.5vw, 52px);
     font-weight: 300;
     line-height: 1.1;
     color: var(--text);
-    margin-bottom: 36px;
+    margin-bottom: 32px;
 }
 
 .proj-heading em {
@@ -332,14 +385,14 @@
 .proj-card {
     display: block;
     text-decoration: none;
-    padding: 28px;
+    padding: 26px;
     background: var(--surf);
     border: 0.5px solid var(--border);
     border-radius: 16px;
     position: relative;
     overflow: hidden;
     cursor: none;
-    transition: background 0.45s ease, border-color 0.45s ease, transform 0.45s ease;
+    transition: background 0.45s, border-color 0.45s, transform 0.35s;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
 }
@@ -364,15 +417,15 @@
     font-size: 10px;
     color: var(--dim);
     letter-spacing: 0.14em;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
 }
 
 .proj-name {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
+    font-size: 21px;
     font-weight: 400;
     color: var(--gold);
-    margin-bottom: 10px;
+    margin-bottom: 9px;
     letter-spacing: -0.01em;
 }
 
@@ -380,7 +433,7 @@
     font-size: 12px;
     color: var(--muted);
     line-height: 1.75;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
 }
 
 .proj-tags {
@@ -401,11 +454,11 @@
 
 .proj-arrow {
     position: absolute;
-    top: 22px;
-    right: 22px;
+    top: 20px;
+    right: 20px;
     font-size: 13px;
     color: var(--dim);
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition: color 0.3s, transform 0.3s;
 }
 
 .proj-card:hover .proj-arrow {
@@ -414,7 +467,7 @@
 }
 
 .view-all {
-    margin-top: 20px;
+    margin-top: 18px;
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -429,7 +482,7 @@
     font-weight: 300;
     padding: 0;
     text-decoration: none;
-    transition: gap 0.4s ease, opacity 0.3s ease;
+    transition: gap 0.4s, opacity 0.3s;
 }
 
 .view-all:hover {
@@ -442,11 +495,21 @@
     height: 0.5px;
     background: var(--gold);
     display: block;
-    transition: width 0.4s ease;
+    transition: width 0.4s;
 }
 
 .view-all:hover .view-all-line {
     width: 44px;
+}
+
+@media (max-width: 768px) {
+    .proj-grid { grid-template-columns: 1fr; gap: 10px; }
+    .proj-card { cursor: default; }
+    .view-all { cursor: default; }
+}
+@media (max-width: 480px) {
+    .proj-card { padding: 20px; }
+    .proj-name { font-size: 19px; }
 }
 
 /* PAGE 4 - Contact */
@@ -457,8 +520,9 @@
 
 .contact-inner {
     max-width: 560px;
+    width: 100%;
     text-align: center;
-    padding: 60px 48px;
+    padding: 56px 44px;
     background: var(--surf);
     backdrop-filter: blur(40px) saturate(1.8);
     -webkit-backdrop-filter: blur(40px) saturate(1.8);
@@ -501,10 +565,10 @@
 
 .contact-heading {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(36px, 5vw, 52px);
+    font-size: clamp(30px, 5vw, 52px);
     font-weight: 300;
     line-height: 1.1;
-    margin: 16px 0;
+    margin: 14px 0;
     color: var(--text);
 }
 
@@ -517,14 +581,14 @@
     font-size: 13px;
     color: var(--muted);
     line-height: 1.8;
-    margin-bottom: 36px;
+    margin-bottom: 32px;
 }
 
 .contact-btn {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    padding: 13px 30px;
+    padding: 13px 28px;
     background: var(--gold-dim);
     border: 0.5px solid var(--gold-border);
     border-radius: 100px;
@@ -538,7 +602,7 @@
     font-weight: 400;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s;
     position: relative;
     overflow: hidden;
 }
@@ -562,13 +626,13 @@
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--dim);
-    margin: 28px 0 18px;
+    margin: 24px 0 16px;
 }
 
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 22px;
+    gap: 18px;
 }
 
 .social-link {
@@ -583,7 +647,7 @@
     color: var(--muted);
     text-decoration: none;
     cursor: none;
-    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .social-link:hover {
@@ -599,25 +663,13 @@
 }
 
 /* RESPONSIVENESS */
-@media (max-width: 900px) {
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .proj-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .exp-item {
-        grid-template-columns: 100px 1fr;
-        gap: 16px;
-    }
-
-    .contact-inner {
-        padding: 40px 22px;
-    }
-
-    .contact-heading {
-        font-size: 34px;
-    }
+@media (max-width: 768px) {
+    #page-4 { justify-content: flex-start; align-items: stretch; }
+    .contact-inner { padding: 36px 24px; }
+    .contact-btn { cursor: default; }
+    .social-link { cursor: default; }
+}
+@media (max-width: 400px) {
+    .contact-inner { padding: 28px 16px; }
+    .social-links { gap: 12px; }
 }
