@@ -3,29 +3,42 @@
 
 (function initMain() {
 
+    const MOBILE_BP = 768;
+    function isMobile() { return window.innerWidth <= MOBILE_BP; }
+
     /* SEXY ROUND CIRCLE FOLLOWING DOT CURSOR */
     const cursorDot  = document.getElementById('cursor');
     const cursorRing = document.getElementById('cursorRing');
+    let mx = 0, my = 0, rx = 0, ry = 0;
 
-    // MOUSE POSITION (snapped)
-    let mouseX = 0, mouseY = 0;
-    // RING POSITION (lerped)
-    let ringX  = 0, ringY  = 0;
+    function enableCursor() {
+        document.body.style.cursor = 'none';
+        if (cursorDot)  cursorDot.style.display  = 'block';
+        if (cursorRing) cursorRing.style.display = 'block';
+    }
+    function disableCursor() {
+        document.body.style.cursor = '';
+        if (cursorDot)  cursorDot.style.display  = 'none';
+        if (cursorRing) cursorRing.style.display = 'none';
+    }
 
     // MOUSE TRACKER
     document.addEventListener('mousemove', e => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        cursorDot.style.left = mouseX + 'px';
-        cursorDot.style.top  = mouseY + 'px';
+        if (isMobile()) return;
+        mx = e.clientX; my = e.clientY;
+        cursorDot.style.left = mx + 'px';
+        cursorDot.style.top  = my + 'px';
+        enableCursor();
     });
 
-    // RING LERP TOWARD MOUSE
+    // RING LERP TOWARD MOUSE (Stand proud, you can larp)
     (function lerpRing() {
-        ringX += (mouseX - ringX) * 0.11;
-        ringY += (mouseY - ringY) * 0.11;
-        cursorRing.style.left = ringX + 'px';
-        cursorRing.style.top  = ringY + 'px';
+        rx += (mx - rx) * 0.11;
+        ry += (my - ry) * 0.11;
+        if (cursorRing) {
+        cursorRing.style.left = rx + 'px';
+        cursorRing.style.top  = ry + 'px';
+        }
         requestAnimationFrame(lerpRing);
     })();
 
@@ -41,42 +54,85 @@
 
     document.querySelectorAll(interactiveSelectors).forEach(el => {
         el.addEventListener('mouseenter', () => {
-        cursorRing.style.width       = '48px';
-        cursorRing.style.height      = '48px';
-        cursorRing.style.borderColor = 'rgba(201, 168, 76, 0.65)';
+            if (isMobile() || !cursorRing) return;
+            cursorRing.style.width       = '48px';
+            cursorRing.style.height      = '48px';
+            cursorRing.style.borderColor = 'rgba(201, 168, 76, 0.65)';
         });
         el.addEventListener('mouseleave', () => {
-        cursorRing.style.width       = '28px';
-        cursorRing.style.height      = '28px';
-        cursorRing.style.borderColor = 'rgba(201, 168, 76, 0.42)';
+            if (isMobile() || !cursorRing) return;
+            cursorRing.style.width       = '28px';
+            cursorRing.style.height      = '28px';
+            cursorRing.style.borderColor = 'rgba(201, 168, 76, 0.42)';
         });
     });
 
-    /* DARK MODE VS WHITE MODE ENJOYER TOGGLE */
-    const themeToggle = document.getElementById('themeToggle');
+    // HIDE CURSOR ON TOUCH DEVICES
+    document.addEventListener('touchstart', disableCursor, { passive: true });
+    window.addEventListener('resize', () => { if (isMobile()) disableCursor(); });
 
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
+    /* DARK MODE VS WHITE MODE ENJOYER TOGGLE */
+    function toggleTheme() {
         const html = document.documentElement;
         html.dataset.theme = html.dataset.theme === 'dark' ? 'light' : 'dark';
-
-        // PREFERNCE PERSISTENCE ON PAGE REFRESH
-        try {
-            localStorage.setItem('voyage-theme', html.dataset.theme);
-        } catch (_) {
-            // WHEN localStorage IS UNAVAILABLE SILENTLY FAIL AND CONTINUE WITHOUT PERSISTENCE
-        }
-        });
+        try { localStorage.setItem('voyage-theme', html.dataset.theme); } catch (_) {}
     }
+
+    document.getElementById('themeToggle')?.addEventListener('click', toggleTheme);
+    document.getElementById('themeToggleMobile')?.addEventListener('click', toggleTheme);
 
     /* RESTORE SAVED THEME PREFERENCE ON LOAD */
     try {
         const saved = localStorage.getItem('voyage-theme');
-        if (saved && (saved === 'light' || saved === 'dark')) {
-        document.documentElement.dataset.theme = saved;
+        if (saved === 'light' || saved === 'dark') {
+            document.documentElement.dataset.theme = saved;
         }
-    } catch (_) {
-        // SILENTLY FALL BACK TO DEFAULT THEME
+    } catch (_) {}
+
+    /* HAMBURGER MENU */
+    const hamburger  = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    let menuOpen = false;
+
+    function openMenu() {
+        menuOpen = true;
+        hamburger.classList.remove('closing');
+        hamburger.classList.add('open');
+        mobileMenu.classList.add('open');
+        document.addEventListener('click', outsideClickHandler);
     }
+
+    function closeMenu() {
+        menuOpen = false;
+        hamburger.classList.remove('open');
+        hamburger.classList.add('closing');
+        mobileMenu.classList.remove('open');
+        // REMOVE CLOSING CLASS AFTER ANIMATION
+        setTimeout(() => hamburger.classList.remove('closing'), 500);
+        document.removeEventListener('click', outsideClickHandler);
+    }
+
+    function outsideClickHandler(e) {
+        if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+        closeMenu();
+        }
+    }
+
+    hamburger?.addEventListener('click', e => {
+        e.stopPropagation();
+        menuOpen ? closeMenu() : openMenu();
+    });
+
+    // CLOSE MOBILE MENU ON ITEM CLICK
+    document.querySelectorAll('.mobile-menu-item').forEach(item => {
+        item.addEventListener('click', () => {
+        closeMenu();
+        });
+    });
+
+    // CLOSE ON RESIZE BACK TO DESKTOP
+    window.addEventListener('resize', () => {
+        if (!isMobile() && menuOpen) closeMenu();
+    });
 
 })();

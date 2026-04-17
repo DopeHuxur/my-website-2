@@ -178,8 +178,66 @@
                 id="themeToggle"
                 aria-label="Toggle light/dark mode"
             ></button>
+
+            <!-- MOBILE PIRATE WHEEL (HAMBURGER MENU) -->
+            <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false">
+                <!-- WHEEL SVG -->
+                <svg class="hamburger-wheel" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <!-- OUTER RING -->
+                <circle cx="12" cy="12" r="10.5" stroke="currentColor" stroke-width="1.2"/>
+                <!-- INNER STUFF -->
+                <circle cx="12" cy="12" r="2.6" stroke="currentColor" stroke-width="1"/>
+                <circle cx="12" cy="12" r="1" fill="currentColor"/>
+                <!-- 8 SPOKES @ 45° -->
+                <line x1="12" y1="9.4" x2="12" y2="3.5"   stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+                <line x1="12" y1="14.6" x2="12" y2="20.5"  stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+                <line x1="9.4" y1="12" x2="3.5" y2="12"    stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+                <line x1="14.6" y1="12" x2="20.5" y2="12"  stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+                <line x1="10.26" y1="10.26" x2="5.98" y2="5.98" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                <line x1="13.74" y1="13.74" x2="18.02" y2="18.02" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                <line x1="13.74" y1="10.26" x2="18.02" y2="5.98"  stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                <line x1="10.26" y1="13.74" x2="5.98" y2="18.02"  stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                <!-- OUTER DOTS -->
+                <circle cx="12"    cy="2.8"   r="1.1" fill="currentColor"/>
+                <circle cx="12"    cy="21.2"  r="1.1" fill="currentColor"/>
+                <circle cx="2.8"   cy="12"    r="1.1" fill="currentColor"/>
+                <circle cx="21.2"  cy="12"    r="1.1" fill="currentColor"/>
+                <circle cx="5.46"  cy="5.46"  r="0.9" fill="currentColor"/>
+                <circle cx="18.54" cy="18.54" r="0.9" fill="currentColor"/>
+                <circle cx="18.54" cy="5.46"  r="0.9" fill="currentColor"/>
+                <circle cx="5.46"  cy="18.54" r="0.9" fill="currentColor"/>
+                </svg>
+            </button>
         </div>
     </nav>
+
+    <!-- HAMBURGER MENU OVERLAY -->
+    <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+        <button class="mobile-menu-item active" data-page="0">
+        <span>Home</span>
+        <span class="item-num">01</span>
+        </button>
+        <button class="mobile-menu-item" data-page="1">
+        <span>About</span>
+        <span class="item-num">02</span>
+        </button>
+        <button class="mobile-menu-item" data-page="2">
+        <span>Experience</span>
+        <span class="item-num">03</span>
+        </button>
+        <button class="mobile-menu-item" data-page="3">
+        <span>Projects</span>
+        <span class="item-num">04</span>
+        </button>
+        <button class="mobile-menu-item" data-page="4">
+        <span>Contact</span>
+        <span class="item-num">05</span>
+        </button>
+        <div class="mobile-menu-footer">
+        <span class="mobile-menu-footer-label">Switch Theme</span>
+        <button class="theme-toggle" id="themeToggleMobile" aria-label="Toggle light/dark mode"></button>
+        </div>
+    </div>
 
     <!-- SHIP PROGRESS TRACKER -->
     <div class="progress-track" id="progressTrack" aria-hidden="true">
