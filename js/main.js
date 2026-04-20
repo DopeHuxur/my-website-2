@@ -135,4 +135,20 @@
         if (!isMobile() && menuOpen) closeMenu();
     });
 
+//MAY CHAOS TAKE THE WORLD (HOVER EFFECT)
+    const chaosElement = document.getElementById('chaos-word');
+
+    const normalText = "chaos.";
+    const madnessText = "May chaos take the world!";
+
+    chaosElement.addEventListener('mouseenter', () => {
+        chaosElement.textContent = madnessText;
+        chaosElement.classList.add('frenzied-flame');
+    });
+
+    chaosElement.addEventListener('mouseleave', () => {
+        chaosElement.textContent = normalText;
+        chaosElement.classList.remove('frenzied-flame');
+    });
+    
 })();

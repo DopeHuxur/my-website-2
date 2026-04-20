@@ -528,3 +528,34 @@ nav {
 @media (max-width: 400px) {
     .progress-track { display: none; }
 }
+
+/* MAY CHAOS TAKE THE WORLD */
+#chaos-word {
+    cursor: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    animation: attention-shake 2s infinite; 
+}
+
+.frenzied-flame {
+    color: #ff5500;
+    font-weight: bold;
+    animation: shake 0.3s ease-in-out; 
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-2px) rotate(-1deg); }
+    50% { transform: translateX(2px) rotate(1deg); }
+    75% { transform: translateX(-2px) rotate(-1deg); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes attention-shake {
+    0%, 90% { transform: translateX(0) rotate(0); }
+    92% { transform: translateX(-1px) rotate(-1deg); }
+    94% { transform: translateX(1px) rotate(1deg); }
+    96% { transform: translateX(-1px) rotate(-1deg); }
+    98% { transform: translateX(1px) rotate(1deg); }
+    100% { transform: translateX(0) rotate(0); }
+}
